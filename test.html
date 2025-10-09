@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <h1>test test</h1>
+    
+    <button id="pagina2">punten</button>
+
+    <div id="leaderboard">
+      <h2>Leaderboard</h2>
+      <ul>
+            <div id="scoreDisplay"></div>
+            <script>
+            const savedScore = localStorage.getItem("test");
+            document.getElementById("scoreDisplay").textContent = "Test: " + (savedScore ?? 0);
+            </script>
+        </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
