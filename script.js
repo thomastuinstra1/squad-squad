@@ -1,18 +1,24 @@
 const UX_element = document.getElementById('UX_element');
 const pagina2 = document.getElementById('pagina2');
+
 let pointsplayer1 = document.getElementById('test');
+let scoreDisplay = document.getElementById('scoreDisplay');
 
 let playerPoints = [
-    {id: 'test', currentPoints: 0}
+    {id: 'test', currentPoints: parseInt(localStorage.getItem("test")) || 0 }
 ];
 
-
 function updateScoreboard() {
-    pointsplayer1.textContent = "Test: " + playerPoints[0].currentPoints;
+    if (pointsplayer1) {
+        pointsplayer1.textContent = "Test: " + playerPoints[0].currentPoints;
+    }
+    if (scoreDisplay) {
+    scoreDisplay.textContent = "Test: " + playerPoints[0].currentPoints;
+    }
 }
 
 if (UX_element) {
-document.getElementById("UX_element").addEventListener("click", function() {
+    UX_element.addEventListener("click", function() {
     playerPoints[0].currentPoints += 1;
     updateScoreboard();
     localStorage.setItem("test", playerPoints[0].currentPoints);
@@ -21,9 +27,11 @@ document.getElementById("UX_element").addEventListener("click", function() {
 }
 
 if (pagina2) {
-document.getElementById("UX_element").addEventListener("click", function() {
+    pagina2.addEventListener("click", function() {
     playerPoints[0].currentPoints += 1;
     updateScoreboard();
     localStorage.setItem("test", playerPoints[0].currentPoints);
 });
 }
+
+updateScoreboard();
