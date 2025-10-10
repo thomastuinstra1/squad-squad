@@ -1,5 +1,6 @@
 const UX_element = document.getElementById('UX_element');
 const pagina2 = document.getElementById('pagina2');
+const resetBtn = document.getElementById("resetScore");
 
 let pointsplayer1 = document.getElementById('test');
 let scoreDisplay = document.getElementById('scoreDisplay');
@@ -32,6 +33,14 @@ if (pagina2) {
     updateScoreboard();
     localStorage.setItem("test", playerPoints[0].currentPoints);
 });
+}
+
+if (resetBtn) {
+  resetBtn.addEventListener("click", function() {
+    localStorage.removeItem("test");
+    playerPoints[0].currentPoints = 0;
+    updateScoreboard();
+  });
 }
 
 updateScoreboard();

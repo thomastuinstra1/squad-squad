@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Slechte UX/UI elementen</title>
     <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-    <button id="UX_element">Click me!</button>
-
+  </head>
+  <body>
     <div id="leaderboard">
       <h2>Leaderboard</h2>
       <ul>
@@ -16,6 +14,15 @@
       </ul>
     </div>
 
+    <div id="card">
+      <h1>Inloggen</h1>
+      <label for="username">Gebruikersnaam</label>
+      <input id="username" type="text" placeholder="Typ je naam" />
+      <button id="UX_element">Inloggen</button>
+    </div>
+
+    <button id="resetScore">Reset score</button>
+
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
