@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Uitlegpagina</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -13,7 +13,13 @@
         <img src="Images/hartje.png" alt="Hartje 3" data-state="full">
     </div>
 
+    <button id="continueBtn">Ga verder</button>
 
     <script src="script.js"></script>
+    <script>
+        document.getElementById('continueBtn').addEventListener('click', function () {
+            window.location.href = ''; //level 2 redirect moet hier komen
+        });
+    </script>
 </body>
 </html>

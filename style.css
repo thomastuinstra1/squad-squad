@@ -34,3 +34,22 @@
     cursor: not-allowed;
 }
 
+#continueBtn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    font-size: 18px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#continueBtn:hover {
+    background-color: #45a049;
+}
+
+
