@@ -76,3 +76,10 @@ p {
     transform: scale(1.1);
     box-shadow: 0 0 40px #ff6347, 0 0 80px #ff7f50;
 }
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
