@@ -1,9 +1,11 @@
 (function () {
     const FULL_SRC = 'Images/hartje.png';
     const EMPTY_SRC = 'Images/hartje3.png';
+    const REDIRECT_URL = 'uitlegPagina.html';
+    const END_URL = 'eindpagina.html';
 
     const livesContainer = document.getElementById('lives');
-    if (!livesContainer) return; // Stop als er geen hartjes-container is
+    if (!livesContainer) return; 
 
     const livesImgs = Array.from(livesContainer.querySelectorAll('img'));
     const MAX_LIVES = livesImgs.length;
@@ -47,23 +49,28 @@
             localStorage.setItem('lives', lives);
             renderLives();
 
-            // ✅ Controleer of alle levens op zijn
             if (lives === 0) {
                 setTimeout(() => {
-                    window.location.href = eindpagina.html;
-                }, 500); // kleine vertraging zodat het laatste hartje kan veranderen
+                    window.location.href = END_URL;
+                }, 500);
             }
         }
     }
 
     if (btn) {
         btn.addEventListener('click', function () {
+            const confirmGiveUp = confirm("Weet je zeker dat je wilt opgeven?");
+
+            if (!confirmGiveUp) {
+                return; 
+            }
+
             btn.disabled = true;
             loseLife();
 
             if (lives > 0) {
                 setTimeout(() => {
-                    window.location.href = uitlegPagina.html;
+                    window.location.href = REDIRECT_URL;
                 }, 300);
             }
         });
