@@ -1,7 +1,6 @@
 (function () {
     const FULL_SRC = 'Images/hartje.png';
     const EMPTY_SRC = 'Images/hartje3.png';
-    const REDIRECT_URL = 'uitlegPagina.html';
 
     const livesContainer = document.getElementById('lives');
     if (!livesContainer) return; // Stop als er geen hartjes-container is
@@ -47,6 +46,13 @@
             lives--;
             localStorage.setItem('lives', lives);
             renderLives();
+
+            // ✅ Controleer of alle levens op zijn
+            if (lives === 0) {
+                setTimeout(() => {
+                    window.location.href = eindpagina.html;
+                }, 500); // kleine vertraging zodat het laatste hartje kan veranderen
+            }
         }
     }
 
@@ -54,9 +60,12 @@
         btn.addEventListener('click', function () {
             btn.disabled = true;
             loseLife();
-            setTimeout(() => {
-                window.location.href = REDIRECT_URL;
-            }, 300);
+
+            if (lives > 0) {
+                setTimeout(() => {
+                    window.location.href = uitlegPagina.html;
+                }, 300);
+            }
         });
     }
 
