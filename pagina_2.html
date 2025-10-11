@@ -1,0 +1,50 @@
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mijn Homepage</title>
+    <link rel="stylesheet" href="pagina_2.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Welkom op mijn homepage</h1>
+    </header>
+
+    <nav>
+      <a href="#over">Over</a>
+      <a href="#diensten">Diensten</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+      <section id="over">
+        <h3 onclick="alert('goed gedaan!')">Over mij</h3>
+        <p>Hallo! Dit is een homepage template.</p>
+      </section>
+
+      <section id="diensten">
+        <h2>Diensten</h2>
+        <ul>
+          <li>Webdesign</li>
+          <li>Ontwikkeling</li>
+          <li>Ondersteuning</li>
+        </ul>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <form onsubmit="verzendFormulier(event)">
+          <label for="naam">Naam:</label>
+          <input type="text" id="naam" name="naam" required />
+
+          <label for="bericht">Bericht:</label>
+          <textarea id="bericht" name="bericht" rows="4" required></textarea>
+
+          <button type="submit">Verstuur</button>
+        </form>
+      </section>
+    </main>
+
+    <script src="pagina_2.js"></script>
+  </body>
+</html>

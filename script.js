@@ -2,6 +2,8 @@ const UX_element = document.getElementById('UX_element');
 const pagina2 = document.getElementById('pagina2');
 const resetBtn = document.getElementById("resetScore");
 
+const savedScore = localStorage.getItem("test");
+
 let pointsplayer1 = document.getElementById('test');
 let scoreDisplay = document.getElementById('scoreDisplay');
 
@@ -42,5 +44,8 @@ if (resetBtn) {
     updateScoreboard();
   });
 }
+
+document.getElementById("scoreDisplay").textContent =
+"Test: " + (savedScore ?? 0);
 
 updateScoreboard();
