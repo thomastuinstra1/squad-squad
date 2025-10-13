@@ -2,7 +2,7 @@
     const FULL_SRC = 'Images/hartje.png';
     const EMPTY_SRC = 'Images/hartje3.png';
     const REDIRECT_URL = 'uitlegPagina.html';
-    const END_URL = 'eindpagina.html';
+    const END_URL = 'Eindpagina.html';
 
     const livesContainer = document.getElementById('lives');
     if (!livesContainer) return; 
