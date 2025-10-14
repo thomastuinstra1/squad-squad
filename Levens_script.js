@@ -58,23 +58,32 @@
     }
 
     if (btn) {
-        btn.addEventListener('click', function () {
-            const confirmGiveUp = confirm("Weet je zeker dat je wilt opgeven?");
+    btn.addEventListener('click', function () {
+        Swal.fire({
+            title: "Weet je het zeker?",
+            text: "Weet je zeker dat je wilt opgeven?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Ja, ik geef op",
+            cancelButtonText: "Nee, verder spelen",
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            reverseButtons: true,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                btn.disabled = true;
+                loseLife();
 
-            if (!confirmGiveUp) {
-                return; 
-            }
-
-            btn.disabled = true;
-            loseLife();
-
-            if (lives > 0) {
-                setTimeout(() => {
-                    window.location.href = REDIRECT_URL;
-                }, 300);
+                if (lives > 0) {
+                    setTimeout(() => {
+                        window.location.href = REDIRECT_URL;
+                    }, 300);
+                }
             }
         });
-    }
+    });
+}
+
 
     if (resetBtn) {
         resetBtn.addEventListener('click', function () {
