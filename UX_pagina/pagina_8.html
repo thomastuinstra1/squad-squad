@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instellingen</title>
+    <style>
+        body {
+        font-family: system-ui, sans-serif;
+        background: #f7f8fa;
+        padding: 2rem;
+        }
+        input {
+        display: block;
+        width: 300px;
+        padding: 0.5rem;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        margin-top: 0.3rem;
+        }
+        .buttons button {
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+        }
+        .buttons .opslaan {
+        background: white;
+        }
+        .buttons .reset {
+        background: white;
+        font-family: monospace;
+        }
+        .opgeslagen {
+        display: inline-block;
+        font-size: 0.8rem;
+        background: #eaf3ff;
+        padding: 0.3rem 0.6rem;
+        border-radius: 4px;
+        margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Instellingen</h1>
+
+    <label>Volledige naam
+        <input type="text" placeholder="Bijv. Anna van Dijk">
+    </label>
+
+    <label>E-mail
+        <input type="email" placeholder="naam@example.com">
+    </label>
+
+    <div class="buttons" style="margin-top: 1rem;">
+        <button class="opslaan">Opslaan</button>
+        <button class="reset"><a onclick="alert('goed gedaan!')">Reset</a></button>
+    </div>
+
+    <div class="opgeslagen">Opgeslagen!</div>
+</body>
+</html>

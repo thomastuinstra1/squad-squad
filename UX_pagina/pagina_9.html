@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inloggen</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fafafa;
+      padding: 2rem;
+    }
+    form {
+      max-width: 300px;
+      margin: 0 auto;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    input {
+      display: block;
+      width: 290px;
+      padding: 0.4rem;
+      margin-top: 0.3rem;
+      margin-bottom: 1rem;
+      border: 1px solid #bbb;
+      border-radius: 4px;
+    }
+    button {
+      width: 100%;
+      padding: 0.5rem;
+      background: #dddddd;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #ccc;
+    }
+    .help {
+      font-size: 0.8rem;
+      color: #000000;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="text-align:center;">Login</h1>
+  <form>
+    <label for="email">E-mailadres</label>
+    <input id="email" type="email" placeholder="naam@example.com">
+
+    <label for="password">Wachtwoord</label>
+    <input id="password" type="password" placeholder="••••••••">
+
+    <button>Verzenden</button>
+    <div class="help">
+        <a onclick="alert('goed gedaan!')">Wachtwoord vergeten?|Maak een nieuw account</a>
+    </div>
+  </form>
+</body>
+</html>
