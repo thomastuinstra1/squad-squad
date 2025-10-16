@@ -38,7 +38,7 @@
       font-size: 2.5rem;
       margin-bottom: 30px;
       text-transform: uppercase;
-      letter-spacing: 80px;
+      letter-spacing: 3px;
       text-shadow: 0 0 10px #00ffc8;
     }
 
@@ -54,6 +54,26 @@
       cursor: pointer;
       transition: all 0.3s ease;
       text-transform: uppercase;
+    }
+
+    .menu-button2 {
+      display: block;
+      margin: 15px 0;
+      padding: 12px 30px;
+      font-size: 6px;
+      color: #00ffc8;
+      background: transparent;
+      border: 2px solid #00ffc8;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+    }
+
+    .menu-button2:hover {
+      background: #00ffc8;
+      color: #000;
+      box-shadow: 0 0 20px #00ffc8;
     }
 
     .menu-button:hover {
@@ -83,13 +103,14 @@
   </style>
 </head>
 <body>
+  
   <div class="hud-lines"></div>
 
   <div class="hud-container">
-    <h1 onclick="alert('Goed gedaan!!')" class="hud-title">Main Menu</h1>
+    <h1 class="hud-title">Main Menu</h1>
     <button class="menu-button">Start game</button>
-    <button class="menu-button">Options</button>
-    <button class="menu-button">Load Game</button>
+    <button class="menu-button">Options</button>    
+    <button onclick="alert('Goed gedaan!!')" class="menu-button2">Load Game</button>
     <button class="menu-button">Exit</button>
   </div>
 

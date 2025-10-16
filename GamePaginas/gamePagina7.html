@@ -21,7 +21,7 @@
 
 
     .hud-container {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgb(167, 255, 209);
       border: 2px solid rgba(0, 255, 200, 0.3);
       border-radius: 16px;
       padding: 40px 60px;
@@ -38,7 +38,7 @@
       font-size: 2.5rem;
       margin-bottom: 30px;
       text-transform: uppercase;
-      letter-spacing: 80px;
+      letter-spacing: 3px;
       text-shadow: 0 0 10px #00ffc8;
     }
 
@@ -83,15 +83,17 @@
   </style>
 </head>
 <body>
+  
   <div class="hud-lines"></div>
 
-  <div class="hud-container">
-    <h1 onclick="alert('Goed gedaan!!')" class="hud-title">Main Menu</h1>
+  <div onclick="alert('Goed gedaan!!')" class="hud-container">
+    <h1 class="hud-title">Main Menu</h1>
     <button class="menu-button">Start game</button>
-    <button class="menu-button">Options</button>
+    <button class="menu-button">Options</button>    
     <button class="menu-button">Load Game</button>
     <button class="menu-button">Exit</button>
   </div>
+    
 
   <div class="hud-footer">
     © 2025 Super goede game Inc.
