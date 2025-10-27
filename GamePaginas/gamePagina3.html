@@ -4,35 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Game Menu HUD</title>
+  <link rel="stylesheet" href="../style.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
       body {
-      margin: 0;
-      height: 100vh;
-      font-family: 'Orbitron', sans-serif;
-      background: radial-gradient(circle at center, #0a0a0f 0%, #000 100%);
-      color: #00ffc8;
-      display: flex;
-      align-items: center;   
-      justify-content: center; 
-      overflow: hidden;
-    }
+  margin: 0;
+  height: 100vh;
+  font-family: 'Orbitron', sans-serif;
+  background-color: rgb(45, 45, 45);
+  color: #00ffc8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
 
-
-    .hud-container {
-      background: rgba(255, 255, 255, 0.05);
-      border: 2px solid rgba(0, 255, 200, 0.3);
-      border-radius: 16px;
-      padding: 40px 60px;
-      text-align: center;
-      box-shadow: 0 0 20px rgba(0, 255, 200, 0.2);
-      backdrop-filter: blur(6px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
+.hud-container {
+  background: black; 
+  border: 2px solid rgba(0, 255, 200, 0.3);
+  border-radius: 16px;
+  padding: 40px 60px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 255, 200, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 
     .hud-title {
       font-size: 2.5rem;
@@ -83,7 +82,7 @@
   </style>
 </head>
 <body>
-  <div class="hud-lines"></div>
+  
 
   <div class="hud-container">
     <h1 class="hud-title">Main Menu</h1>
@@ -96,5 +95,16 @@
   <div class="hud-footer">
     © 2025 Super goede game <span onclick="alert('Goed gedaan!!')">Inc.</span>
   </div>
+
+  <div class="buttons-container">
+    <button id="loseLifeBtn">Geef op</button>
+  </div>
+
+  <div class="image-container" id="lives">
+        <img src="../Images/hartje.png" alt="Hartje 1" data-state="full">
+        <img src="../Images/hartje.png" alt="Hartje 2" data-state="full">
+        <img src="../Images/hartje.png" alt="Hartje 3" data-state="full">
+    </div>
+  <script src="../Levens_script.js"></script>
 </body>
 </html>
