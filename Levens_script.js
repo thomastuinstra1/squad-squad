@@ -71,9 +71,18 @@
 
     if (lives > 0) {
                 setTimeout(() => {
-                    const REDIRECT_URL = redirectCount === 0 
-                                ? 'uitlegPagina2.html' 
-                                : 'uitlegPagina.html';
+                    let REDIRECT_URL = '';
+
+                    if (redirectCount === 0) {
+                    REDIRECT_URL = 'uitlegPagina2.html';
+                    } else if (redirectCount === 1) {
+                    REDIRECT_URL = 'uitlegPagina.html';
+                    } else if (redirectCount === 2) {
+                    REDIRECT_URL = 'uitlegPagina3.html';
+                    } else {
+                    REDIRECT_URL = 'uitlegPagina4.html';
+                    }
+
 
                             localStorage.setItem('redirectCount', (redirectCount + 1) % 2);
 
