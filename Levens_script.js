@@ -14,6 +14,8 @@
     const resetBtn = document.getElementById('resetBtn');
     const livesCountEl = document.getElementById('livesCount');
 
+    let redirectCount = parseInt(localStorage.getItem('redirectCount'), 10) || 0;
+
     let lives = parseInt(localStorage.getItem('lives'), 10);
     if (isNaN(lives)) {
         lives = MAX_LIVES;
@@ -75,10 +77,26 @@
                 loseLife();
 
                 if (lives > 0) {
-                    setTimeout(() => {
-                        window.location.href = REDIRECT_URL;
-                    }, 300);
-                }
+                setTimeout(() => {
+                    let REDIRECT_URL = '';
+
+                    if (redirectCount === 0) {
+                    REDIRECT_URL = 'uitlegPagina2.html';
+                    } else if (redirectCount === 1) {
+                    REDIRECT_URL = 'uitlegPagina.html';
+                    } else if (redirectCount === 2) {
+                    REDIRECT_URL = 'uitlegPagina3.html';
+                    } else {
+                    REDIRECT_URL = 'uitlegPagina4.html';
+                    }
+
+
+                            localStorage.setItem('redirectCount', (redirectCount + 1) % 2);
+
+                            window.location.href = REDIRECT_URL;
+                        }, 300);
+        
+                    }
             }
         });
     });

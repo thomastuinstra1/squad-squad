@@ -16,7 +16,8 @@
 
     <div class="content">
         <h1>Uitleg</h1>
-        <div>De knop is in het Nederlands terwijl de rest van de pagina in het Engels is.</div>
+        <div>De titel "Main Menu" is expres te vaag en moeilijk leesbaar gemaakt door weinig contrast te gebruiken.
+             In goede UI/UX-ontwerpen moet belangrijke informatie juist duidelijk zichtbaar en goed leesbaar zijn vooral titels en navigatie-onderdelen.</div>
     </div>
 
     <button id="continueBtn">Ga verder</button>
@@ -25,14 +26,13 @@
     <script>
     document.getElementById('continueBtn').addEventListener('click', function () {
         // Haal aantal levens op uit localStorage
-        let lives = parseInt(localStorage.getItem('lives'), 10) || 0;
 
         if (lives === 0) {
             // Als geen levens meer, naar eindpagina
             window.location.href = 'Eindpagina.html';
         } else {
             // Anders gewoon naar de uitlegpagina/volgende level
-            window.location.href = 'uitlegPagina.html'; // of test.html/level 2
+            window.location.href = 'gamePagina2.html'; // of test.html/level 2
         }
     });
     </script>
