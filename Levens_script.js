@@ -1,7 +1,6 @@
 (function () {
     const FULL_SRC = 'Images/hartje.png';
     const EMPTY_SRC = 'Images/hartje3.png';
-    const REDIRECT_URL = 'uitlegPagina.html';
     const END_URL = 'Eindpagina.html';
 
     const livesContainer = document.getElementById('lives');
@@ -19,6 +18,8 @@
         lives = MAX_LIVES;
         localStorage.setItem('lives', lives);
     }
+
+    let redirectCount = parseInt(localStorage.getItem('redirectCount') || '0', 10);
 
     function renderLives() {
         for (let i = 0; i < MAX_LIVES; i++) {
@@ -68,11 +69,17 @@
             btn.disabled = true;
             loseLife();
 
-            if (lives > 0) {
+    if (lives > 0) {
                 setTimeout(() => {
-                    window.location.href = REDIRECT_URL;
-                }, 300);
-            }
+                    const REDIRECT_URL = redirectCount === 0 
+                                ? 'uitlegPagina2.html' 
+                                : 'uitlegPagina.html';
+
+                            localStorage.setItem('redirectCount', (redirectCount + 1) % 2);
+
+                            window.location.href = REDIRECT_URL;
+                        }, 300);
+                    }
         });
     }
 
