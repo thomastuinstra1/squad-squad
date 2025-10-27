@@ -1,6 +1,7 @@
 (function () {
-    const FULL_SRC = 'Images/hartje.png';
-    const EMPTY_SRC = 'Images/hartje3.png';
+    const FULL_SRC = '../Images/hartje.png';
+    const EMPTY_SRC = '../Images/hartje3.png';
+    const REDIRECT_URL = 'uitlegPagina.html';
     const END_URL = 'Eindpagina.html';
 
     const livesContainer = document.getElementById('lives');
@@ -19,25 +20,24 @@
         localStorage.setItem('lives', lives);
     }
 
-    let redirectCount = parseInt(localStorage.getItem('redirectCount') || '0', 10);
-
     function renderLives() {
         for (let i = 0; i < MAX_LIVES; i++) {
             if (i < lives) {
                 livesImgs[i].src = FULL_SRC;
                 livesImgs[i].dataset.state = 'full';
-                livesImgs[i].alt = Leven ${i + 1} (vol);
+                livesImgs[i].alt = `Leven ${i + 1} (vol)`;
             } else {
                 livesImgs[i].src = EMPTY_SRC;
                 livesImgs[i].dataset.state = 'empty';
-                livesImgs[i].alt = Leven ${i + 1} (verloren);
+                livesImgs[i].alt = `Leven ${i + 1} (verloren)`;
             }
         }
         if (livesCountEl) {
             livesCountEl.textContent = lives;
         }
     }
-function resetLives() {
+
+    function resetLives() {
         lives = MAX_LIVES;
         localStorage.setItem('lives', lives);
         renderLives();
@@ -48,42 +48,42 @@ function resetLives() {
             lives--;
             localStorage.setItem('lives', lives);
             renderLives();
+
+            if (lives === 0) {
+                setTimeout(() => {
+                    window.location.href = END_URL;
+                }, 500);
+            }
         }
     }
 
     if (btn) {
-        btn.addEventListener('click', function () {
-            const confirmGiveUp = confirm("Weet je zeker dat je wilt opgeven?");
+    btn.addEventListener('click', function () {
+        Swal.fire({
+            title: "Weet je het zeker?",
+            text: "Weet je zeker dat je wilt opgeven?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonText: "Ja, ik geef op",
+            cancelButtonText: "Nee, verder spelen",
+            confirmButtonColor: "#d33",
+            cancelButtonColor: "#3085d6",
+            reverseButtons: true,
+        }).then((result) => {
+            if (result.isConfirmed) {
+                btn.disabled = true;
+                loseLife();
 
-            if (!confirmGiveUp) {
-                return; 
+                if (lives > 0) {
+                    setTimeout(() => {
+                        window.location.href = REDIRECT_URL;
+                    }, 300);
+                }
             }
-
-            btn.disabled = true;
-            loseLife();
-
-    if (lives > 0) {
-                setTimeout(() => {
-                    let REDIRECT_URL = '';
-
-                    if (redirectCount === 0) {
-                    REDIRECT_URL = 'uitlegPagina2.html';
-                    } else if (redirectCount === 1) {
-                    REDIRECT_URL = 'uitlegPagina.html';
-                    } else if (redirectCount === 2) {
-                    REDIRECT_URL = 'uitlegPagina3.html';
-                    } else {
-                    REDIRECT_URL = 'uitlegPagina4.html';
-                    }
-
-
-                            localStorage.setItem('redirectCount', (redirectCount + 1) % 2);
-
-                            window.location.href = REDIRECT_URL;
-                        }, 300);
-                    }
         });
-    }
+    });
+}
+
 
     if (resetBtn) {
         resetBtn.addEventListener('click', function () {
