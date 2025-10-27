@@ -58,7 +58,7 @@ p {
     color: #f0f0f0;
 }
 
-#Start {
+.Start {
     padding: 20px 50px;
     font-size: 1.5rem;
     font-weight: bold;
@@ -71,7 +71,7 @@ p {
     transition: all 0.3s ease;
 }
 
-#Start:hover {
+.Start:hover {
     background: #ff6347;
     transform: scale(1.1);
     box-shadow: 0 0 40px #ff6347, 0 0 80px #ff7f50;

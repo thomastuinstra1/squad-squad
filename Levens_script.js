@@ -26,19 +26,18 @@
             if (i < lives) {
                 livesImgs[i].src = FULL_SRC;
                 livesImgs[i].dataset.state = 'full';
-                livesImgs[i].alt = `Leven ${i + 1} (vol)`;
+                livesImgs[i].alt = Leven ${i + 1} (vol);
             } else {
                 livesImgs[i].src = EMPTY_SRC;
                 livesImgs[i].dataset.state = 'empty';
-                livesImgs[i].alt = `Leven ${i + 1} (verloren)`;
+                livesImgs[i].alt = Leven ${i + 1} (verloren);
             }
         }
         if (livesCountEl) {
             livesCountEl.textContent = lives;
         }
     }
-
-    function resetLives() {
+function resetLives() {
         lives = MAX_LIVES;
         localStorage.setItem('lives', lives);
         renderLives();
