@@ -23,9 +23,18 @@
 
     <script src="Levens_script.js"></script>
     <script>
-        document.getElementById('continueBtn').addEventListener('click', function () {
-            window.location.href = 'gamePagina.html'; //level 2 redirect moet hier komen
-        });
+    document.getElementById('continueBtn').addEventListener('click', function () {
+        // Haal aantal levens op uit localStorage
+        let lives = parseInt(localStorage.getItem('lives'), 10) || 0;
+
+        if (lives === 0) {
+            // Als geen levens meer, naar eindpagina
+            window.location.href = 'Eindpagina.html';
+        } else {
+            // Anders gewoon naar de uitlegpagina/volgende level
+            window.location.href = 'uitlegPagina.html'; // of test.html/level 2
+        }
+    });
     </script>
 </body>
 </html>

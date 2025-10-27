@@ -49,12 +49,6 @@
             lives--;
             localStorage.setItem('lives', lives);
             renderLives();
-
-            if (lives === 0) {
-                setTimeout(() => {
-                    window.location.href = END_URL;
-                }, 500);
-            }
         }
     }
 
