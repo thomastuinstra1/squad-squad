@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini Social Media</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f2f5;
+    }
+
+    header {
+        background-color: #4267B2;
+        color: white;
+        padding: 16px 32px;
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    .main-container {
+        display: flex;
+        max-width: 1200px;
+        margin: 20px auto;
+        gap: 20px;
+    }
+
+    .sidebar {
+        flex: 1;
+        background-color: #fff;
+        padding: 16px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .sidebar h2 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .sidebar ul li {
+        margin: 10px 0;
+        cursor: pointer;
+        color: #4267B2;
+        transition: color 0.2s;
+    }
+
+    .sidebar ul li.bad-ux {
+        color: #f0f2f5;
+    }
+
+    .sidebar ul li.bad-ux:hover {
+        color: #4267B2;
+        text-decoration: underline;
+    }
+
+    .feed {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .new-post {
+        background-color: #fff;
+        padding: 16px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .new-post textarea {
+        width: 100%;
+        height: 80px;
+        padding: 8px;
+        resize: none;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .new-post button {
+        margin-top: 8px;
+        padding: 10px 16px;
+        background-color: #4267B2;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .new-post button:hover {
+        background-color: #365899;
+    }
+
+    .post {
+        background-color: #fff;
+        padding: 16px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .post h3 {
+        margin: 0 0 8px 0;
+        font-size: 1.1rem;
+        color: #4267B2;
+    }
+
+    .post p {
+        margin: 0;
+    }
+</style>
+</head>
+<body>
+<header>
+    Mini Social Media
+</header>
+<div class="main-container">
+    <div class="sidebar">
+        <h2>Snelkoppelingen</h2>
+        <ul>
+            <li>Home</li>
+            <li>Profiel</li>
+            <li>Berichten</li>
+            <li>Instellingen</li>
+            <li class="bad-ux">Notificaties</li>
+            
+        </ul>
+    </div>
+
+    <div class="feed">
+        <div class="new-post">
+            <textarea placeholder="Wat wil je delen?"></textarea>
+            <button>Post</button>
+        </div>
+
+        <div class="post">
+            <h3>Alice</h3>
+            <p>Vandaag lekker gewandeld in het park!</p>
+        </div>
+        <div class="post">
+            <h3>Bob</h3>
+            <p>Nieuwe social media pagina gebouwd met HTML en CSS!</p>
+        </div>
+        <div class="post">
+            <h3>Charlie</h3>
+            <p>Heeft iemand tips voor een goede boekentip?</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const badUxElement = document.querySelector('.bad-ux');
+    badUxElement.addEventListener('click', () => {
+        alert("Goed gedaan! Je hebt een foute UX-element gevonden!");
+        badUxElement.style.border = "2px solid red";
+    });
+</script>
+</body>
+</html>
