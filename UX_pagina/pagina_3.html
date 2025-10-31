@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inloggen</title>
+    <style>
+        body { display:flex; justify-content:center; align-items:center; height:100vh; font-family:Arial, sans-serif; background:linear-gradient(135deg, #f0f0f0, #fafafa); }
+        .kaart { background:white; padding:30px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.1); width:320px; text-align:center; }
+        form { display:flex; flex-direction:column; align-items:center; justify-content:center; }
+        label { align-self:flex-start; margin-left:10px; }
+        input { width:90%; padding:10px; margin-top:10px; border:1px solid #ddd; border-radius:8px; text-align:center; }
+        button { width:90%; padding:10px; margin-top:15px; border:1px solid #ddd; border-radius:8px; background:#e0e0e0; cursor:pointer; transition:background 0.3s; }
+        button:hover { background:#d0d0d0; }
+    </style>
+</head>
+<body>
+    <div class="kaart">
+        <h1>Inloggen</h1>
+        <form>
+            <label>Gebruikersnaam</label>
+            <input type="text" value="Johan Janssen" readonly> 
+            <label>Wachtwoord</label>
+            <input type="text" value="Johan123" readonly onclick="alert('goed gedaan!')">
+            <button type="submit">Inloggen</button>
+        </form>
+    </div>
+</body>
+</html>
