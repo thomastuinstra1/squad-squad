@@ -1,112 +1,110 @@
 <!DOCTYPE html>
 <html lang="nl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Game Menu HUD</title>
-  <link rel="stylesheet" href="../style.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game Menu HUD</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap");
 
-          body {
-  margin: 0;
-  height: 100vh;
-  font-family: 'Orbitron', sans-serif;
-  background-color: rgb(45, 45, 45);
-  color: #00ffc8;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
+      body {
+        margin: 0;
+        height: 100vh;
+        font-family: "Orbitron", sans-serif;
+        background-color: rgb(45, 45, 45);
+        color: #00ffc8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
 
-.hud-container {
-  background: black;
-  border: 2px solid rgba(0, 255, 200, 0.3);
-  border-radius: 16px;
-  padding: 40px 60px;
-  text-align: center;
-  box-shadow: 0 0 20px rgba(0, 255, 200, 0.2);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
+      .hud-container {
+        background: black;
+        border: 2px solid rgba(0, 255, 200, 0.3);
+        border-radius: 16px;
+        padding: 40px 60px;
+        text-align: center;
+        box-shadow: 0 0 20px rgba(0, 255, 200, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
 
-    .hud-title {
-      font-size: 2.5rem;
-      margin-bottom: 30px;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      text-shadow: 0 0 10px #00ffc8;
-    }
+      .hud-title {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        text-shadow: 0 0 10px #00ffc8;
+      }
 
-    .menu-button {
-      display: block;
-      margin: 15px 0;
-      padding: 12px 30px;
-      font-size: 1.2rem;
-      color: #00ffc8;
-      background: transparent;
-      border: 2px solid #00ffc8;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-transform: uppercase;
-    }
+      .menu-button {
+        display: block;
+        margin: 15px 0;
+        padding: 12px 30px;
+        font-size: 1.2rem;
+        color: #00ffc8;
+        background: transparent;
+        border: 2px solid #00ffc8;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+      }
 
-    .menu-button:hover {
-      background: #00ffc8;
-      color: #000;
-      box-shadow: 0 0 20px #00ffc8;
-    }
+      .menu-button:hover {
+        background: #00ffc8;
+        color: #000;
+        box-shadow: 0 0 20px #00ffc8;
+      }
 
-    .hud-footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.9rem;
-      color: rgba(0, 255, 200, 0.6);
-    }
+      .hud-footer {
+        position: absolute;
+        bottom: 20px;
+        font-size: 0.9rem;
+        color: rgba(0, 255, 200, 0.6);
+      }
 
-    .hud-lines::before, .hud-lines::after {
-      content: '';
-      position: absolute;
-      width: 120px;
-      height: 2px;
-      background: rgba(0,255,200,0.3);
-      top: 30px;
-    }
-    .hud-lines::before { left: 10%; }
-    .hud-lines::after { right: 10%; }
-
-  </style>
-</head>
-<body>
-  
-  
-
-  <div onclick="alert('Goed gedaan!!')" class="hud-container">
-    <h1 class="hud-title">Main Menu</h1>
-    <button class="menu-button">Start game</button>
-    <button class="menu-button">Options</button>    
-    <button class="menu-button">Load Game</button>
-    <button class="menu-button">Exit</button>
-  </div>
-    
-
-  <div class="hud-footer">
-    © 2025 Super goede game Inc.
-  </div>
-
-  <div class="buttons-container">
-    <button id="loseLifeBtn">Geef op</button>
-  </div>
-
-  <div class="image-container" id="lives">
-        <img src="../Images/hartje.png" alt="Hartje 1" data-state="full">
-        <img src="../Images/hartje.png" alt="Hartje 2" data-state="full">
-        <img src="../Images/hartje.png" alt="Hartje 3" data-state="full">
+      .hud-lines::before,
+      .hud-lines::after {
+        content: "";
+        position: absolute;
+        width: 120px;
+        height: 2px;
+        background: rgba(0, 255, 200, 0.3);
+        top: 30px;
+      }
+      .hud-lines::before {
+        left: 10%;
+      }
+      .hud-lines::after {
+        right: 10%;
+      }
+    </style>
+  </head>
+  <body>
+    <div onclick="alert('Goed gedaan!!')" class="hud-container">
+      <h1 class="hud-title">Main Menu</h1>
+      <button class="menu-button">Start game</button>
+      <button class="menu-button">Options</button>
+      <button class="menu-button">Load Game</button>
+      <button class="menu-button">Exit</button>
     </div>
-  <script src="../Levens_script.js"></script>
-</body>
+
+    <div class="hud-footer">© 2025 Super goede game Inc.</div>
+
+    <div class="buttons-container">
+      <button id="loseLifeBtn">Geef op</button>
+    </div>
+
+    <div class="image-container" id="lives">
+      <img src="../Images/hartje.png" alt="Hartje 1" data-state="full" />
+      <img src="../Images/hartje.png" alt="Hartje 2" data-state="full" />
+      <img src="../Images/hartje.png" alt="Hartje 3" data-state="full" />
+    </div>
+    <script src="../Levens_script.js"></script>
+  </body>
 </html>
