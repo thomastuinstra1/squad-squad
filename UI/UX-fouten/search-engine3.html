@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Engine</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f6f8fa;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 80px auto;
+            background: #fff;
+            padding: 32px 24px;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+        }
+        h1 {
+            text-align: center;
+            color: #222;
+            margin-bottom: 24px;
+        }
+        /* Foute UX-element: groot woord */
+        .fout-woord {
+            font-size: 2rem;           /* ander formaat */
+            font-family: 'Orbitron', sans-serif;
+            cursor: pointer;            /* hint dat je kan klikken */
+            color: #222;
+        }
+        form {
+            display: flex;
+            gap: 8px;
+        }
+        input[type="text"] {
+            flex: 1;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        button {
+            padding: 10px 18px;
+            background: #0078d4;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #005fa3;
+        }
+        .results {
+            margin-top: 28px;
+        }
+        .result-item {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        .result-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Titel met één groot woord als foute UX -->
+        <h1>
+            Simple <span id="foute-woord" class="fout-woord">Search</span> Engine
+        </h1>
+
+        <form id="searchForm">
+            <input type="text" id="searchInput" placeholder="Type to search..." autocomplete="off" required>
+            <button type="button">Search</button>
+        </form>
+
+        <div class="results" id="results"></div>
+    </div>
+
+    <script>
+        const data = ["Apple","Banana","Cherry","Date","Elderberry"];
+        const input = document.getElementById('searchInput');
+        const resultsDiv = document.getElementById('results');
+        const foutWoord = document.getElementById('foute-woord');
+
+        // Zoek functionaliteit (optioneel)
+        document.getElementById('searchForm').addEventListener('submit', function(e){
+            e.preventDefault();
+            const query = input.value.trim().toLowerCase();
+            resultsDiv.innerHTML = '';
+            if(query === '') return;
+
+            const results = data.filter(item => item.toLowerCase().includes(query));
+            if(results.length === 0){
+                resultsDiv.innerHTML = '<div class="result-item">No results found.</div>';
+            } else {
+                results.forEach(item=>{
+                    const div = document.createElement('div');
+                    div.className = 'result-item';
+                    div.textContent = item;
+                    resultsDiv.appendChild(div);
+                });
+            }
+        });
+
+        // Foute UX: klik op het grote woord
+        foutWoord.addEventListener('click', function() {
+            foutWoord.textContent = 'Gevonden ✓';
+            foutWoord.style.color = '#ff4500';
+            alert('Goed gedaan! Je hebt het foute element gevonden.');
+        });
+    </script>
+</body>
+</html>
