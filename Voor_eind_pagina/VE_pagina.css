@@ -76,10 +76,21 @@ p {
     transform: scale(1.1);
     box-shadow: 0 0 40px #ff6347, 0 0 80px #ff7f50;
 }
-
-.button-group {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+#retryBtn {
+    padding: 20px 50px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 12px;
+    background: #ff4500;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 20px #ff4500;
+    transition: all 0.3s ease;
 }
 
+#retryBtn:hover {
+    background: #ff6347;
+    transform: scale(1.1);
+    box-shadow: 0 0 40px #ff6347, 0 0 80px #ff7f50;
+}
