@@ -14,6 +14,26 @@
         <button id="Start">Start game</button>
     </div>
 
+    <audio id="bgMusic" loop>
+        <source src="Muziek/neon-gaming-128925.mp3" type="audio/mpeg">
+    </audio>
+
     <script src="Voorpagina.js"></script>
+    <script>
+        const startButton = document.getElementById("Start");
+        const bgMusic = document.getElementById("bgMusic");
+
+        document.body.addEventListener("click", () => {
+            if (bgMusic.paused) {
+                bgMusic.volume = 0.4;
+                bgMusic.play();
+            }
+        }, { once: true });
+
+        startButton.addEventListener("click", () => {
+            bgMusic.play();
+            window.location.href = "Game.html";
+        });
+    </script>
 </body>
 </html>
