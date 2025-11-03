@@ -100,7 +100,7 @@ input[type="text"] {
     bottom: 20px;
     left: 20px;
     display: flex;
-    gap: 10px; /* ruimte tussen knoppen */
+    gap: 10px;
 }
 
 .buttons-container button {

@@ -83,9 +83,50 @@
       .hud-lines::after {
         right: 10%;
       }
+      #hud {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 9999;
+      }
+
+      #lives img {
+        width: 60px;
+        height: auto;
+      }
+
+      #loseLifeBtn {
+        position: fixed;
+        bottom: 15px;
+        left: 15px;
+        padding: 8px 16px;
+        background-color: #d33;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1rem;
+        z-index: 9999;
+        transition: background-color 0.3s ease, transform 0.1s ease;
+      }
+
+      #loseLifeBtn:hover {
+        background-color: #ff5555;
+        transform: scale(1.05);
+      }
+
+      #loseLifeBtn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
     </style>
   </head>
   <body>
+    <div id="hud-container"></div>
     <div class="hud-container">
       <h1 onclick="alert('Goed gedaan!!')" class="hud-title">Main Menu</h1>
       <button class="menu-button">Start Game</button>
@@ -96,16 +137,8 @@
 
     <div class="hud-footer">© 2025 Super goede game Inc.</div>
 
-    <div class="buttons-container">
-      <button id="loseLifeBtn">Geef op</button>
-    </div>
-
-    <div class="image-container" id="lives">
-      <img src="../Images/hartje.png" alt="Hartje 1" data-state="full" />
-      <img src="../Images/hartje.png" alt="Hartje 2" data-state="full" />
-      <img src="../Images/hartje.png" alt="Hartje 3" data-state="full" />
-    </div>
-    <script src="../Levens_script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="../Levens_script.js"></script>
+
   </body>
 </html>

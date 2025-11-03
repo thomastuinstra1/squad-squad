@@ -6,12 +6,59 @@ const CONFIG = {
   START_URL: '../voor_eind_pagina/Voorpagina.html'
 };
 
-document.addEventListener('DOMContentLoaded', () => {
+const levels = [
+  "../UX_pagina/gamePagina.html",
+  "../UX_pagina/gamePagina1.html",
+  "../UX_pagina/gamePagina2.html",
+  "../UX_pagina/gamePagina3.html",
+  "../UX_pagina/gamePagina4.html",
+  "../UX_pagina/gamePagina5.html",
+  "../UX_pagina/gamePagina6.html",
+  "../UX_pagina/gamePagina7.html",
+  "../UX_pagina/gamePagina8.html",
+  "../UX_pagina/gamePagina9.html",
+  "../UX_pagina/Index.html",
+  "../UX_pagina/pagina_2.html",
+  "../UX_pagina/pagina_3.html",
+  "../UX_pagina/pagina_4.html",
+  "../UX_pagina/pagina_5.html",
+  "../UX_pagina/pagina_6.html",
+  "../UX_pagina/pagina_7.html",
+  "../UX_pagina/pagina_8.html",
+  "../UX_pagina/pagina_9.html",
+  "../UX_pagina/pagina_10.html",
+  "../UX_pagina/search-engine.html",
+  "../UX_pagina/search-engine1.html",
+  "../UX_pagina/search-engine2.html",
+  "../UX_pagina/search-engine3.html",
+  "../UX_pagina/search-engine4.html",
+  "../UX_pagina/search-engine5.html",
+  "../UX_pagina/social-media-pagina.html",
+  "../UX_pagina/social-media-pagina1.html",
+  "../UX_pagina/social-media-pagina2.html",
+  "../UX_pagina/social-media-pagina3.html",
+  "../UX_pagina/social-media-pagina4.html",
+  "../UX_pagina/social-media-pagina5.html",
+];
+
+document.addEventListener('DOMContentLoaded', async () => {
+
+  const hudContainer = document.getElementById('hud-container');
+  if (hudContainer) {
+    try {
+      const response = await fetch('../hud.html');
+      const hudHTML = await response.text();
+      hudContainer.innerHTML = hudHTML;
+    } catch (err) {
+      console.error('HUD kon niet worden geladen:', err);
+    }
+  }
 
   const elements = {
     startBtn: document.getElementById('Start'),
     loseLifeBtn: document.getElementById('loseLifeBtn'),
     resetBtn: document.getElementById('resetBtn'),
+    retryBtn: document.getElementById('retryBtn'),
     livesContainer: document.getElementById('lives'),
     livesCount: document.getElementById('livesCount')
   };
@@ -21,41 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
     : [];
 
   const MAX_LIVES = livesImgs.length > 0 ? livesImgs.length : 3;
-
-  const levels = [
-    "../UX_pagina/gamePagina.html",
-    "../UX_pagina/gamePagina1.html",
-    "../UX_pagina/gamePagina2.html",
-    "../UX_pagina/gamePagina3.html",
-    "../UX_pagina/gamePagina4.html",
-    "../UX_pagina/gamePagina5.html",
-    "../UX_pagina/gamePagina6.html",
-    "../UX_pagina/gamePagina7.html",
-    "../UX_pagina/gamePagina8.html",
-    "../UX_pagina/gamePagina9.html",
-    "../UX_pagina/Index.html",
-    "../UX_pagina/pagina_2.html",
-    "../UX_pagina/pagina_3.html",
-    "../UX_pagina/pagina_4.html",
-    "../UX_pagina/pagina_5.html", 
-    "../UX_pagina/pagina_6.html",
-    "../UX_pagina/pagina_7.html",
-    "../UX_pagina/pagina_8.html",
-    "../UX_pagina/pagina_9.html",
-    "../UX_pagina/pagina_10.html",
-    "../UX_pagina/search-engine.html",
-    "../UX_pagina/search-engine1.html",
-    "../UX_pagina/search-engine2.html",
-    "../UX_pagina/search-engine3.html",
-    "../UX_pagina/search-engine4.html",
-    "../UX_pagina/search-engine5.html",
-    "../UX_pagina/social-media-pagina.html",
-    "../UX_pagina/social-media-pagina1.html",
-    "../UX_pagina/social-media-pagina2.html",
-    "../UX_pagina/social-media-pagina3.html",
-    "../UX_pagina/social-media-pagina4.html",
-    "../UX_pagina/social-media-pagina5.html",
-   ];
 
   const GameState = {
     lives: (function() {
@@ -122,6 +134,8 @@ document.addEventListener('DOMContentLoaded', () => {
     },
 
     async confirmGiveUp() {
+      if (!elements.loseLifeBtn) return;
+
       if (typeof Swal === 'undefined') {
         const ok = window.confirm('Weet je zeker dat je wilt opgeven?');
         if (!ok) return;
@@ -155,8 +169,8 @@ document.addEventListener('DOMContentLoaded', () => {
     elements.startBtn.addEventListener('click', () => GameState.nextRandomLevel());
   }
 
-  if (retryBtn) {
-  retryBtn.addEventListener('click', () => window.location.href = 'Voorpagina.html');
+  if (elements.retryBtn) {
+    elements.retryBtn.addEventListener('click', () => window.location.href = CONFIG.START_URL);
   }
 
   if (elements.loseLifeBtn) {
@@ -167,18 +181,17 @@ document.addEventListener('DOMContentLoaded', () => {
     elements.resetBtn.addEventListener('click', () => GameState.reset());
   }
 
-const onLevelPage = window.location.pathname.includes('UX_pagina');
-const onStartPage = window.location.pathname.includes('Voorpagina.html');
+  const onLevelPage = window.location.pathname.includes('UX_pagina');
+  const onStartPage = window.location.pathname.includes('Voorpagina.html');
 
-if (onStartPage && GameState.lives <= 0) {
+  if (onStartPage && GameState.lives <= 0) {
     GameState.reset();
-}
+  }
 
-UI.updateLives();
+  UI.updateLives();
 
-if (onLevelPage && GameState.lives <= 0) {
+  if (onLevelPage && GameState.lives <= 0) {
     window.location.href = CONFIG.END_URL;
-}
-
+  }
 
 });
