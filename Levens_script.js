@@ -1,16 +1,13 @@
-/* ========== CONFIG ========== */
 const CONFIG = {
-  FULL_SRC: '../Images/hartje.png',         // hartje vol
-  EMPTY_SRC: '../Images/hartje3.png',       // hartje leeg
+  FULL_SRC: '../Images/hartje.png',
+  EMPTY_SRC: '../Images/hartje3.png',
   REDIRECT_URL: '../voor/uitlegPagina.html',
   END_URL: '../voor_eind_pagina/eindpagina.html',
   START_URL: '../voor_eind_pagina/Voorpagina.html'
 };
 
-/* ========== HELPERS: wacht tot DOM geladen is ========== */
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ========== ELEMENTEN ========== */
   const elements = {
     startBtn: document.getElementById('Start'),
     loseLifeBtn: document.getElementById('loseLifeBtn'),
@@ -19,14 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
     livesCount: document.getElementById('livesCount')
   };
 
-  /* ========== LIFE IMAGES & MAX_LIVES (met fallback) ========== */
   const livesImgs = elements.livesContainer
     ? Array.from(elements.livesContainer.querySelectorAll('img'))
     : [];
 
   const MAX_LIVES = livesImgs.length > 0 ? livesImgs.length : 3;
 
-  /* ========== LEVELS ========== */
   const levels = [
     "../UX_pagina/gamePagina.html",
     "../UX_pagina/gamePagina1.html",
@@ -61,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     "../UX_pagina/social-media-pagina4.html",
     "../UX_pagina/social-media-pagina5.html",
    ];
-  /* ========== GAMESTATE ========== */
+
   const GameState = {
     lives: (function() {
       const saved = parseInt(localStorage.getItem('lives'), 10);
@@ -86,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
       this.save();
       UI.updateLives();
 
-      // Alleen redirect naar eindpagina als je op een levelpagina zit
       const onLevelPage = window.location.pathname.includes('UX_pagina');
       if (this.lives === 0 && onLevelPage) {
         setTimeout(() => window.location.href = CONFIG.END_URL, 500);
@@ -106,7 +100,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  /* ========== UI ========== */
   const UI = {
     updateLives() {
       if (!livesImgs.length) {
@@ -158,7 +151,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  /* ========== EVENTS ========== */
   if (elements.startBtn) {
     elements.startBtn.addEventListener('click', () => GameState.nextRandomLevel());
   }
@@ -175,22 +167,18 @@ document.addEventListener('DOMContentLoaded', () => {
     elements.resetBtn.addEventListener('click', () => GameState.reset());
   }
 
-/* ========== INIT ========== */
 const onLevelPage = window.location.pathname.includes('UX_pagina');
 const onStartPage = window.location.pathname.includes('Voorpagina.html');
 
 if (onStartPage && GameState.lives <= 0) {
-    // Reset levens op startpagina zodat speler kan beginnen
     GameState.reset();
 }
 
-// Update UI altijd
 UI.updateLives();
 
-// Redirect naar eindpagina alleen op levelpagina als levens 0
 if (onLevelPage && GameState.lives <= 0) {
     window.location.href = CONFIG.END_URL;
 }
 
 
-}); // end DOMContentLoaded
+});
