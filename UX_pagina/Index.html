@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../styles.css" />
   </head>
   <body>
+    <div id="hud-container"></div>
     <div id="leaderboard">
       <h2>Leaderboard</h2>
       <ul>
@@ -21,19 +22,9 @@
       <button id="UX_element">Inloggen</button>
     </div>
 
-    <div class="image-container" id="lives">
-      <img src="../images/hartje.png" alt="Hartje 1" data-state="full" />
-      <img src="../images/hartje.png" alt="Hartje 2" data-state="full" />
-      <img src="../images/hartje.png" alt="Hartje 3" data-state="full" />
-    </div>
-
-    <div class="buttons-container">
-      <button id="loseLifeBtn">Geef op</button>
-      <button id="resetBtn">Reset levens</button>
-    </div>
-
     <button id="resetScore">Reset score</button>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../script_Leaderboard.js"></script>
     <script src="../Levens_script.js"></script>
   </body>
