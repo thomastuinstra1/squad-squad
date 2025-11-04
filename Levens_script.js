@@ -43,6 +43,8 @@ const levels = [
 
 document.addEventListener('DOMContentLoaded', async () => {
 
+  let popupOverlay, popupBox, uitlegText, nextButton;
+
   const hudContainer = document.getElementById('hud-container');
   if (hudContainer) {
     try {
@@ -50,12 +52,13 @@ document.addEventListener('DOMContentLoaded', async () => {
       const hudHTML = await response.text();
       hudContainer.innerHTML = hudHTML;
 
-      const popupOverlay = document.getElementById('popupOverlay');
-      const popupBox = document.getElementById('popupBox');
-      const uitlegText = document.getElementById('uitlegText');
-      const nextButton = document.getElementById('nextButton');
+      popupOverlay = document.getElementById('popupOverlay');
+      popupBox = document.getElementById('popupBox');
+      uitlegText = document.getElementById('uitlegText');
+      nextButton = document.getElementById('nextButton');
 
       window.showPopup = function(message, type) {
+        if (!uitlegText || !popupBox || !popupOverlay) return;
         uitlegText.innerText = message;
         popupBox.classList.remove('correct', 'mistake');
         if (type === 'correct') popupBox.classList.add('correct');
@@ -71,7 +74,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       console.error('HUD kon niet worden geladen:', err);
     }
   }
-
 
   const elements = {
     startBtn: document.getElementById('Start'),
@@ -156,14 +158,13 @@ document.addEventListener('DOMContentLoaded', async () => {
     async confirmGiveUp() {
       if (!elements.loseLifeBtn) return;
 
-      if (typeof Swal === 'undefined') {
-        const ok = window.confirm('Weet je zeker dat je wilt opgeven?');
-        if (!ok) return;
-        elements.loseLifeBtn.disabled = true;
-        GameState.loseLife();
-        if (GameState.lives > 0) setTimeout(() => window.location.href = CONFIG.REDIRECT_URL, 300);
-        return;
-      }
+      const currentPage = window.location.pathname.split('/').pop();
+
+      const uitlegPerPagina = {
+        "wiki_pagina1.html": "Hier moest je de titel van het artikerl klikken, want die stond in een ander lettertype.",
+      };
+
+      const uitleg = uitlegPerPagina[currentPage] || "Er is geen specifieke uitleg beschikbaar voor deze pagina.";
 
       const result = await Swal.fire({
         title: 'Weet je het zeker?',
@@ -180,7 +181,25 @@ document.addEventListener('DOMContentLoaded', async () => {
       if (result.isConfirmed) {
         elements.loseLifeBtn.disabled = true;
         GameState.loseLife();
-        if (GameState.lives > 0) setTimeout(() => window.location.href = CONFIG.REDIRECT_URL, 300);
+
+        if (typeof showPopup === 'function') {
+          showPopup(uitleg, 'mistake');
+        } else {
+          alert(uitleg);
+        }
+
+        const nextHandler = () => {
+          if (popupOverlay) popupOverlay.classList.add('hidden');
+          if (nextButton) nextButton.removeEventListener('click', nextHandler);
+
+          if (GameState.lives > 0) {
+            setTimeout(() => GameState.nextRandomLevel(), 300);
+          } else {
+            window.location.href = CONFIG.END_URL;
+          }
+        };
+
+        nextButton?.addEventListener('click', nextHandler);
       }
     }
   };
@@ -189,7 +208,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     elements.startBtn.addEventListener('click', () => GameState.nextRandomLevel());
   }
 
-   if (elements.nextButton) {
+  if (elements.nextButton) {
     elements.nextButton.addEventListener('click', () => GameState.nextRandomLevel());
   }
 
@@ -218,4 +237,4 @@ document.addEventListener('DOMContentLoaded', async () => {
     window.location.href = CONFIG.END_URL;
   }
 
-});
+}); // einde DOMContentLoaded
