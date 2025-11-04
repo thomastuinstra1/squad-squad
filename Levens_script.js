@@ -49,13 +49,33 @@ document.addEventListener('DOMContentLoaded', async () => {
       const response = await fetch('../hud.html');
       const hudHTML = await response.text();
       hudContainer.innerHTML = hudHTML;
+
+      const popupOverlay = document.getElementById('popupOverlay');
+      const popupBox = document.getElementById('popupBox');
+      const uitlegText = document.getElementById('uitlegText');
+      const nextButton = document.getElementById('nextButton');
+
+      window.showPopup = function(message, type) {
+        uitlegText.innerText = message;
+        popupBox.classList.remove('correct', 'mistake');
+        if (type === 'correct') popupBox.classList.add('correct');
+        if (type === 'mistake') popupBox.classList.add('mistake');
+        popupOverlay.classList.remove('hidden');
+      };
+
+      nextButton?.addEventListener('click', () => {
+        popupOverlay.classList.add('hidden');
+      });
+
     } catch (err) {
       console.error('HUD kon niet worden geladen:', err);
     }
   }
 
+
   const elements = {
     startBtn: document.getElementById('Start'),
+    nextButton: document.getElementById('nextButton'),
     loseLifeBtn: document.getElementById('loseLifeBtn'),
     resetBtn: document.getElementById('resetBtn'),
     retryBtn: document.getElementById('retryBtn'),
@@ -167,6 +187,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   if (elements.startBtn) {
     elements.startBtn.addEventListener('click', () => GameState.nextRandomLevel());
+  }
+
+   if (elements.nextButton) {
+    elements.nextButton.addEventListener('click', () => GameState.nextRandomLevel());
   }
 
   if (elements.retryBtn) {

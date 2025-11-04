@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wikipedia Article</title>
-    <link rel="stylesheet" href="wiki_pagina1.css">
-    <script src="wiki_pagina1.js" defer></script>
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
+    <div id="hud-container"></div>
     <div class="page-layout">
         <div class="wiki-container">
             <div class="wiki-header">
@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="wiki-content">
-            <h1 class="article-title">User interface design</h1>
+            <h1 class="article-title" onclick="showPopup('Perfect! This is correct.', 'correct')">User interface design</h1>
             
             <div class="article-info">
                 From Wikipedia, the free encyclopedia
@@ -80,174 +80,179 @@
         </div>
     </div>
     <style>
-:root {
-    --bg-color: #f6f6f6;
-    --content-bg: #ffffff;
-    --text-color: #202122;
-    --link-color: #0645ad;
-    --border-color: #a2a9b1;
-    --header-bg: #f8f9fa;
-    --input-bg: #ffffff;
-    --input-text: #202122;
-    --base-font-size: 16px;
-    --line-height: 1.6;
-}
+        h1 {
+            color: #202122;
+        }
+        :root {
+            --bg-color: #f6f6f6;
+            --content-bg: #ffffff;
+            --text-color: #202122;
+            --link-color: #0645ad;
+            --border-color: #a2a9b1;
+            --header-bg: #f8f9fa;
+            --input-bg: #ffffff;
+            --input-text: #202122;
+            --base-font-size: 16px;
+            --line-height: 1.6;
+        }
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    line-height: 1.6;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-}
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
 
-.wiki-nav li {
-    margin: 0;
-    padding: 0;
-}
+        .wiki-nav li {
+            margin: 0;
+            padding: 0;
+        }
 
-.wiki-nav {
-    flex-grow: 1;
-}
+        .wiki-nav {
+            flex-grow: 1;
+        }
 
-.wiki-nav ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 1rem;
-}
+        .wiki-nav ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 1rem;
+        }
 
-.wiki-nav a {
-    display: block;
-    padding: 0.5rem 1rem;
-    color: var(--link-color);
-    text-decoration: none;
-    border-bottom: 3px solid transparent;
-}
+        .wiki-nav a {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: var(--link-color);
+            text-decoration: none;
+            border-bottom: 3px solid transparent;
+        }
 
-.wiki-nav a:hover {
-    text-decoration: none;
-    background-color: var(--menu-hover);
-}
+        .wiki-nav a:hover {
+            text-decoration: none;
+            background-color: var(--menu-hover);
+        }
 
-.wiki-nav a.active {
-    border-bottom-color: var(--link-color);
-    font-weight: bold;
-}
-
-
-.wiki-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: var(--content-bg);
-    min-height: 100vh;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
+        .wiki-nav a.active {
+            border-bottom-color: var(--link-color);
+            font-weight: bold;
+        }
 
 
-.wiki-content {
-    flex: 1;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding-right: 320px; 
-    padding: 1rem 2rem;
-}
+        .wiki-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: var(--content-bg);
+            min-height: 100vh;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
 
-.wiki-header {
-    background-color: #f8f9fa;
-    padding: 1rem;
-    border-bottom: 1px solid #a7d7f9;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--header-bg);
-    padding: 1rem;
-    gap: 2rem;
-}
 
-.wiki-logo a {
-    color: #0645ad;
-    text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
-    flex-shrink: 0;
-}
+        .wiki-content {
+            flex: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-right: 320px; 
+            padding: 1rem 2rem;
+        }
 
-.wiki-search input {
-    padding: 0.5rem;
-    width: 300px;
-    border: 1px solid #a2a9b1;
-    border-radius: 3px;
-}
+        .wiki-header {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-bottom: 1px solid #a7d7f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--header-bg);
+            padding: 1rem;
+            gap: 2rem;
+        }
 
-.article-title {
-    border-bottom: 1px solid #a2a9b1;
-    font-family: 'Linux Libertine', Georgia, Times, serif;
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-    padding-bottom: 0.3rem;
-}
+        .wiki-logo a {
+            color: #0645ad;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
 
-.article-info {
-    color: #54595d;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-}
+        .wiki-search input {
+            padding: 0.5rem;
+            width: 300px;
+            border: 1px solid #a2a9b1;
+            border-radius: 3px;
+        }
 
-.article-summary {
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-}
+        .article-title {
+            border-bottom: 1px solid #a2a9b1;
+            font-family: 'Linux Libertine', Georgia, Times, serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.3rem;
+        }
 
-.table-of-contents {
-    background-color: #f8f9fa;
-    border: 1px solid #a2a9b1;
-    padding: 1rem 2rem;
-    margin: 1rem 0;
-    display: inline-block;
-}
+        .article-info {
+            color: #54595d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
 
-.table-of-contents h2 {
-    font-size: 1.2rem;
-    margin-top: 0;
-}
+        .article-summary {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
 
-.table-of-contents ul {
-    list-style-type: none;
-    padding-left: 1rem;
-}
+        .table-of-contents {
+            background-color: #f8f9fa;
+            border: 1px solid #a2a9b1;
+            padding: 1rem 2rem;
+            margin: 1rem 0;
+            display: inline-block;
+        }
 
-.table-of-contents a {
-    color: #0645ad;
-    text-decoration: none;
-}
+        .table-of-contents h2 {
+            font-size: 1.2rem;
+            margin-top: 0;
+        }
 
-.table-of-contents a:hover {
-    text-decoration: underline;
-}
+        .table-of-contents ul {
+            list-style-type: none;
+            padding-left: 1rem;
+        }
 
-section {
-    margin: 2rem 0;
-}
+        .table-of-contents a {
+            color: #0645ad;
+            text-decoration: none;
+        }
 
-section h2 {
-    border-bottom: 1px solid var(--border-color);
-    font-size: 1.8rem;
-    padding-bottom: 0.3rem;
-}
+        .table-of-contents a:hover {
+            text-decoration: underline;
+        }
 
-.references {
-    padding-left: 2rem;
-}
+        section {
+            margin: 2rem 0;
+        }
 
-.references li {
-    margin-bottom: 0.5rem;
-    color: var(--text-color);
-    opacity: 0.8;
-}
+        section h2 {
+            border-bottom: 1px solid var(--border-color);
+            font-size: 1.8rem;
+            padding-bottom: 0.3rem;
+        }
+
+        .references {
+            padding-left: 2rem;
+        }
+
+        .references li {
+            margin-bottom: 0.5rem;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
 
 </style>
 </body>
 </html>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../Levens_script.js" defer></script>
