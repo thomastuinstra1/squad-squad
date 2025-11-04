@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikipedia Article</title>
+    <link rel="stylesheet" href="wiki_pagina1.css">
+    <script src="wiki_pagina1.js" defer></script>
+</head>
+<body>
+    <div class="page-layout">
+        <div class="wiki-container">
+            <div class="wiki-header">
+                <div class="wiki-logo">
+                    <a href="#">Wikipedia</a>
+                </div>
+                <div class="wiki-nav">
+                    <ul>
+                        <li><a href="#" class="active">Article</a></li>
+                        <li><a href="#">Discussion</a></li>
+                        <li><a href="#">Edit</a></li>
+                        <li><a href="#">History</a></li>
+                    </ul>
+                </div>
+                <div class="wiki-search">
+                    <input type="search" placeholder="Search Wikipedia">
+                </div>
+            </div>
+             <div id="popupOverlay" class="hidden">
+            <div id="popupBox">
+                <div id="uitlegText"></div>
+                <div class="button-row">
+                    <button id="nextButton">Volgende</button>
+                </div>
+            </div>
+        </div>
+
+            <div class="wiki-content">
+            <h1 class="article-title" onclick="showPopup('Perfect! This is correct.', 'mistake')"> User Interface Design </h1>
+            
+            <div class="article-info">
+                From Wikipedia, the free encyclopedia
+            </div>
+
+            <div class="article-summary">
+                <p>User interface (UI) design or user interface engineering is the design of user interfaces for machines and software, such as computers, home appliances, mobile devices, and other electronic devices, with the focus on maximizing usability and the user experience. In computer or software design, user interface (UI) design primarily focuses on information architecture. It is the process of building interfaces that clearly communicate to the user what's important. UI design refers to graphical user interfaces and other forms of interface design. The goal of user interface design is to make the user's interaction as simple and efficient as possible, in terms of accomplishing user goals (user-centered design). User-centered design is typically accomplished through the execution of modern design thinking which involves empathizing with the target audience, defining a problem statement, ideating potential solutions, prototyping wireframes, and testing prototypes in order to refine final interface mockups.</p>
+            </div>
+
+            <div class="table-of-contents">
+                <h2>Contents</h2>
+                <ul>
+                    <li><a href="#section1">Three types of user interfaces</a></li>
+                    <li><a href="#section2">UI design vs. UX design</a></li>
+                    <li><a href="#section3">Design thinking</a></li>
+                    <li><a href="#references">References</a></li>
+                </ul>
+            </div>
+
+            <section id="section1">
+                <h2>Three types of user interfaces</h2>
+                <p>Graphical user interfaces (GUIs)
+                Users interact with visual representations on a computer's screen. The desktop is an example of a GUI.</p>
+                <p>Interfaces controlled through voice
+                Users interact with these through their voices. Most smart assistants, such as Siri on smartphones or Alexa on Amazon devices, use voice control.</p>
+                <p>Interactive interfaces utilizing gestures
+                Users interact with 3D design environments through their bodies, e.g., in virtual reality (VR) games.</p>
+                <p>Interface design is involved in a wide range of projects, from computer systems, to cars, to commercial planes; all of these projects involve much of the same basic human interactions yet also require some unique skills and knowledge. As a result, designers tend to specialize in certain types of projects and have skills centered on their expertise, whether it is software design, user research, web design, or industrial design.</p>
+                <p>Good user interface design facilitates finishing the task at hand without drawing unnecessary attention to itself. Graphic design and typography are utilized to support its usability, influencing how the user performs certain interactions and improving the aesthetic appeal of the design; design aesthetics may enhance or detract from the ability of users to use the functions of the interface. The design process must balance technical functionality and visual elements (e.g., mental model) to create a system that is not only operational but also usable and adaptable to changing user needs.</p>
+            </section>
+
+            <section id="section2">
+                <h2>UI design vs. UX design</h2>
+                <p>User interface design is a craft in which designers perform an important function in creating the user experience. UI design should keep users informed about what is happening, giving appropriate feedback in a timely manner. The visual look and feel of UI design sets the tone for the user experience. On the other hand, the term UX design refers to the entire process of creating a user experience.</p>
+            </section>
+
+            <section id="section3">
+                <h2>Design thinking</h2>
+                <p>User interface design requires a good understanding of user needs. It mainly focuses on the needs of the platform and its user expectations. There are several phases and processes in the user interface design, some of which are more demanded upon than others, depending on the project. The modern design thinking framework was created in 2004 by David M. Kelley, the founder of Stanford’s d.school, formally known as the Hasso Plattner Institute of Design. EDIPT is a common acronym used to describe Kelley’s design thinking framework—it stands for empathize, define, ideate, prototype, and test. Notably, the EDIPT framework is non-linear, therefore a UI designer may jump from one stage to another when developing a user-centric solution. Iteration is a common practice in the design thinking process; successful solutions often require testing and tweaking to ensure that the product fulfills user needs.</p>
+            </section>
+
+            <section id="references">
+                <h2>References</h2>
+                <ol class="references">
+                    <li> Norman, D. A. (2002). "Emotion & Design: Attractive things work better". Interactions Magazine, ix (4). pp. 36–42. Archived from the original on Mar 28, 2019. Retrieved 20 April 2014 – via jnd.org.</li>
+                    <li> Roth, Robert E. (April 17, 2017). "User Interface and User Experience (UI/UX) Design". Geographic Information Science & Technology Body of Knowledge. 2017 (Q2). doi:10.22224/gistbok/2017.2.5.</li>
+                </ol>
+            </section>
+            </div>
+        </div>
+    </div>
+    <style>
+:root {
+    --bg-color: #f6f6f6;
+    --content-bg: #ffffff;
+    --text-color: #202122;
+    --link-color: #0645ad;
+    --border-color: #a2a9b1;
+    --header-bg: #f8f9fa;
+    --input-bg: #ffffff;
+    --input-text: #202122;
+    --base-font-size: 16px;
+    --line-height: 1.6;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.wiki-nav li {
+    margin: 0;
+    padding: 0;
+}
+
+.wiki-nav {
+    flex-grow: 1;
+}
+
+.wiki-nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1rem;
+}
+
+.wiki-nav a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--link-color);
+    text-decoration: none;
+    border-bottom: 3px solid transparent;
+}
+
+.wiki-nav a:hover {
+    text-decoration: none;
+    background-color: var(--menu-hover);
+}
+
+.wiki-nav a.active {
+    border-bottom-color: var(--link-color);
+    font-weight: bold;
+}
+
+
+.wiki-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--content-bg);
+    min-height: 100vh;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.wiki-content {
+    flex: 1;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding-right: 320px; 
+    padding: 1rem 2rem;
+}
+
+.wiki-header {
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-bottom: 1px solid #a7d7f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--header-bg);
+    padding: 1rem;
+    gap: 2rem;
+}
+
+.wiki-logo a {
+    color: #0645ad;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.wiki-search input {
+    padding: 0.5rem;
+    width: 300px;
+    border: 1px solid #a2a9b1;
+    border-radius: 3px;
+}
+
+.article-title {
+    border-bottom: 1px solid #a2a9b1;
+    font-family: 'Linux Libertine', Georgia, Times, serif;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.3rem;
+}
+
+.article-info {
+    color: #54595d;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.article-summary {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.table-of-contents {
+    background-color: #f8f9fa;
+    border: 1px solid #a2a9b1;
+    padding: 1rem 2rem;
+    margin: 1rem 0;
+    display: inline-block;
+}
+
+.table-of-contents h2 {
+    font-size: 1.2rem;
+    margin-top: 0;
+}
+
+.table-of-contents ul {
+    list-style-type: none;
+    padding-left: 1rem;
+}
+
+.table-of-contents a {
+    color: #0645ad;
+    text-decoration: none;
+}
+
+.table-of-contents a:hover {
+    text-decoration: underline;
+}
+
+section {
+    margin: 2rem 0;
+}
+
+section h2 {
+    border-bottom: 1px solid var(--border-color);
+    font-size: 1.8rem;
+    padding-bottom: 0.3rem;
+}
+
+.references {
+    padding-left: 2rem;
+}
+
+.references li {
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+#popupOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+#popupBox {
+    padding: 100px;
+    width: 300px;
+    height: 100px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border: 2px solid #000000;
+}
+
+#popupBox.correct  {
+    background-color: rgb(29, 168, 1);
+
+}
+
+    #popupBox.mistake  {
+    background-color: rgb(168, 1, 1);
+
+}
+
+#uitlegText {
+    font-size: 24px;       
+    color: white;          
+    font-weight: 900;       
+    text-align: center;     
+}
+
+#nextButton {
+    background-color: #ffffff;   
+    color: #000000;             
+    font-weight: bold;            
+    font-size: 14px;             
+    padding: 10px 20px;           
+    border: 2px solid #000000;    
+    border-radius: 5px;           
+    cursor: pointer;              
+    transition: background-color 0.3s, color 0.3s; 
+    position: absolute;
+    bottom: 20px;   
+    right: 20px; 
+}
+
+   
+ .hidden {
+   display: none !important;
+ }
+
+   .button-row {
+            margin-top: 20px;
+        }
+
+       
+
+</style>
+</body>
+</html>
+
+<script> 
+
+document.addEventListener('DOMContentLoaded', function() {
+    const popupOverlay = document.getElementById('popupOverlay');
+    const popupBox = document.getElementById('popupBox');
+    const uitlegText = document.getElementById('uitlegText');
+
+    window.showPopup = function(message, type) {
+        
+        uitlegText.innerText = message;
+
+        
+        popupBox.classList.remove('correct', 'mistake');
+
+        
+        if (type === 'correct') {
+            popupBox.classList.add('correct');
+        } else if (type === 'mistake') {
+            popupBox.classList.add('mistake');
+        }
+
+        
+        popupOverlay.classList.remove('hidden');
+    };
+});
+</script>
