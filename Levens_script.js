@@ -41,6 +41,10 @@ const levels = [
   "../UX_pagina/social-media-pagina5.html",
 ];
 
+const uitlegPerPagina = {
+  "wiki_pagina1.html": "Hier moest je de titel van het artikerl klikken, want die stond in een ander lettertype.",
+};
+
 document.addEventListener('DOMContentLoaded', async () => {
 
   let popupOverlay, popupBox, uitlegText, nextButton;
@@ -116,10 +120,29 @@ document.addEventListener('DOMContentLoaded', async () => {
       UI.updateLives();
 
       const onLevelPage = window.location.pathname.includes('UX_pagina');
+
       if (this.lives === 0 && onLevelPage) {
-        setTimeout(() => window.location.href = CONFIG.END_URL, 500);
+        const currentPage = window.location.pathname.split('/').pop();
+        const uitleg = uitlegPerPagina[currentPage] || "Je hebt al je levens verloren. Goed geprobeerd!";
+
+        if (typeof showPopup === 'function') {
+          showPopup(uitleg, 'mistake');
+
+          const nextHandler = () => {
+            popupOverlay.classList.add('hidden');
+            nextButton.removeEventListener('click', nextHandler);
+            window.location.href = CONFIG.END_URL;
+          };
+
+          nextButton?.addEventListener('click', nextHandler);
+        } else {
+          // Fallback (mocht popup niet bestaan)
+          alert(uitleg);
+          window.location.href = CONFIG.END_URL;
+        }
       }
     },
+
 
     nextRandomLevel() {
       if (!levels.length) return;
@@ -155,54 +178,46 @@ document.addEventListener('DOMContentLoaded', async () => {
       }
     },
 
-    async confirmGiveUp() {
-      if (!elements.loseLifeBtn) return;
+  async confirmGiveUp() {
+    if (!elements.loseLifeBtn) return;
 
-      const currentPage = window.location.pathname.split('/').pop();
+    const currentPage = window.location.pathname.split('/').pop();
+    const uitleg = uitlegPerPagina[currentPage] || "Er is geen specifieke uitleg beschikbaar voor deze pagina.";
 
-      const uitlegPerPagina = {
-        "wiki_pagina1.html": "Hier moest je de titel van het artikerl klikken, want die stond in een ander lettertype.",
+    const result = await Swal.fire({
+      title: 'Weet je het zeker?',
+      text: 'Weet je zeker dat je wilt opgeven?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Ja, ik geef op',
+      cancelButtonText: 'Nee, verder spelen',
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#3085d6',
+      reverseButtons: true,
+    });
+
+    if (result.isConfirmed) {
+      elements.loseLifeBtn.disabled = true;
+      GameState.loseLife();
+
+      showPopup(uitleg, 'mistake');
+
+      const nextHandler = () => {
+        popupOverlay.classList.add('hidden');
+        nextButton.removeEventListener('click', nextHandler);
+
+        if (GameState.lives > 0) {
+          setTimeout(() => GameState.nextRandomLevel(), 300);
+        } else {
+          window.location.href = CONFIG.END_URL;
+        }
       };
 
-      const uitleg = uitlegPerPagina[currentPage] || "Er is geen specifieke uitleg beschikbaar voor deze pagina.";
-
-      const result = await Swal.fire({
-        title: 'Weet je het zeker?',
-        text: 'Weet je zeker dat je wilt opgeven?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Ja, ik geef op',
-        cancelButtonText: 'Nee, verder spelen',
-        confirmButtonColor: '#d33',
-        cancelButtonColor: '#3085d6',
-        reverseButtons: true,
-      });
-
-      if (result.isConfirmed) {
-        elements.loseLifeBtn.disabled = true;
-        GameState.loseLife();
-
-        if (typeof showPopup === 'function') {
-          showPopup(uitleg, 'mistake');
-        } else {
-          alert(uitleg);
-        }
-
-        const nextHandler = () => {
-          if (popupOverlay) popupOverlay.classList.add('hidden');
-          if (nextButton) nextButton.removeEventListener('click', nextHandler);
-
-          if (GameState.lives > 0) {
-            setTimeout(() => GameState.nextRandomLevel(), 300);
-          } else {
-            window.location.href = CONFIG.END_URL;
-          }
-        };
-
-        nextButton?.addEventListener('click', nextHandler);
-      }
+      nextButton.addEventListener('click', nextHandler);
     }
-  };
+  }
+}
+
 
   if (elements.startBtn) {
     elements.startBtn.addEventListener('click', () => GameState.nextRandomLevel());
