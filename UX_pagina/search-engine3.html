@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Search Engine</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
     <style>
         body {
@@ -26,11 +25,10 @@
             color: #222;
             margin-bottom: 24px;
         }
-        /* Foute UX-element: groot woord */
         .fout-woord {
-            font-size: 2rem;           /* ander formaat */
+            font-size: 2rem;       
             font-family: 'Orbitron', sans-serif;
-            cursor: pointer;            /* hint dat je kan klikken */
+            cursor: pointer;          
             color: #222;
         }
         form {
@@ -70,9 +68,11 @@
     </style>
 </head>
 <body>
+    <audio loop autoplay>
+    <source src="../Muziek/neon-gaming-128925.mp3" type="audio/mpeg">
+</audio>
     <div id="hud-container"></div>
     <div class="container">
-        <!-- Titel met één groot woord als foute UX -->
         <h1>
             Simple <span id="foute-woord" class="fout-woord">Search</span> Engine
         </h1>
@@ -86,12 +86,11 @@
     </div>
 
     <script>
-        const data = ["Apple","Banana","Cherry","Date","Elderberry"];
+    
         const input = document.getElementById('searchInput');
         const resultsDiv = document.getElementById('results');
         const foutWoord = document.getElementById('foute-woord');
 
-        // Zoek functionaliteit (optioneel)
         document.getElementById('searchForm').addEventListener('submit', function(e){
             e.preventDefault();
             const query = input.value.trim().toLowerCase();
@@ -111,7 +110,6 @@
             }
         });
 
-        // Foute UX: klik op het grote woord
         foutWoord.addEventListener('click', function() {
             foutWoord.textContent = 'Gevonden ✓';
             foutWoord.style.color = '#ff4500';

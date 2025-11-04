@@ -73,18 +73,17 @@
             border: 1px solid #ccc;
         }
 
-        /* Foute UI/UX knop: valt bijna weg */
         .new-post button {
             margin-top: 8px;
             padding: 10px 16px;
-            background-color: #fff; /*zelfde als container*/
+            background-color: #fff;
             color: #000;
             border: 1px solid #ccc;
             border-radius: 5px;
             cursor: pointer;
             transition: border-color 0.3s, box-shadow 0.3s;
         }
-        /* Subtiele hint bij hover: rand en schaduw veranderen */
+
         .new-post button:hover {
             border-color: #4267B2;
             box-shadow: 0 0 8px rgba(66,103,178,0.5);
@@ -107,6 +106,9 @@
     </style>
 </head>
 <body>
+    <audio loop autoplay>
+    <source src="../Muziek/neon-gaming-128925.mp3" type="audio/mpeg">
+</audio>
     <div id="hud-container"></div>
     <header>
         Mini Social Media
@@ -139,7 +141,6 @@
     </div>
 
     <script>
-        // Interactieve hint voor foute UI/UX
         const postBtn = document.getElementById('postBtn');
         postBtn.addEventListener('click', function() {
             alert('Goed gedaan! Je hebt het foute UI/UX element gevonden.');

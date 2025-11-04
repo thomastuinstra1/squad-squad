@@ -61,24 +61,24 @@
     </style>
 </head>
 <body>
+    <audio loop autoplay>
+    <source src="../Muziek/neon-gaming-128925.mp3" type="audio/mpeg">
+</audio>
     <div id="hud-container"></div>
     <div class="container">
         <h1>Simple Search Engine</h1>
         <form id="searchForm">
             <input type="text" id="searchInput" placeholder="Type to search..." autocomplete="off" required>
-            <!-- Normale submit-knop (fake element verwijderd) -->
             <button type="submit">Search</button>
         </form>
         <div class="results" id="results"></div>
     </div>
     <script>
-const data = ["Apple","Banana","Cherry","Date","Elderberry"];
 
 const form = document.getElementById('searchForm');
 const input = document.getElementById('searchInput');
 const resultsDiv = document.getElementById('results');
 
-// Zoek functionaliteit
 form.addEventListener('submit', function(e) {
     e.preventDefault();
     const query = input.value.trim().toLowerCase();
