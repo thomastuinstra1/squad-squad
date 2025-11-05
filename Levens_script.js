@@ -68,10 +68,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (type === 'correct') popupBox.classList.add('correct');
         if (type === 'mistake') popupBox.classList.add('mistake');
         popupOverlay.classList.remove('hidden');
+
+        UI.toggleLoseLifeButton(false);
       };
 
       nextButton?.addEventListener('click', () => {
         popupOverlay.classList.add('hidden');
+
+        UI.toggleLoseLifeButton(true);
       });
 
     } catch (err) {
@@ -88,6 +92,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     livesContainer: document.getElementById('lives'),
     livesCount: document.getElementById('livesCount')
   };
+
 
   const livesImgs = elements.livesContainer
     ? Array.from(elements.livesContainer.querySelectorAll('img'))
@@ -177,6 +182,19 @@ document.addEventListener('DOMContentLoaded', async () => {
         elements.loseLifeBtn.disabled = GameState.lives <= 0;
       }
     },
+
+    toggleLoseLifeButton(visible) {
+    const btn = elements.loseLifeBtn;
+    if (!btn) return;
+
+    if (visible) {
+      btn.style.display = 'inline-block';
+      btn.disabled = GameState.lives <= 0;
+    } else {
+      btn.style.display = 'none';
+      btn.disabled = true;
+    }
+  },
 
   async confirmGiveUp() {
     if (!elements.loseLifeBtn) return;
