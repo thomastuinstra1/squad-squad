@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inloggen</title>
+    <link rel="stylesheet" href="../styles.css" />
     <style>
         body { display:flex; justify-content:center; align-items:center; height:100vh; font-family:Arial, sans-serif; background:linear-gradient(135deg, #f0f0f0, #fafafa); }
         .kaart { background:white; padding:30px; border-radius:12px; box-shadow:0 4px 20px rgba(0,0,0,0.1); width:320px; text-align:center; }
@@ -25,7 +26,7 @@
             <input type="password">
             <button type="submit">Inloggen</button>
         </form>
-            <div id="error" style=" color:red; margin-top:10px;" onclick="alert('goed gedaan!')">Inloggen mislukt.</div>
+            <div id="error" style=" color:red; margin-top:10px;" onclick="showPopup('Perfect! This is correct.', 'correct')">Inloggen mislukt.</div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../Levens_script.js"></script>

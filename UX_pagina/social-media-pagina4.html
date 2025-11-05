@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mini Social Media</title>
+    <link rel="stylesheet" href="../styles.css" />
     <style>
         body {
             margin: 0;
@@ -160,7 +161,7 @@
         badUx.addEventListener('click', () => {
             clickCount++;
             if (clickCount === 2) {
-                alert("Goed gedaan! Je hebt een foute UX-element gevonden!");
+                onclick="showPopup('Perfect! This is correct.', 'correct')"
                 badUx.style.border = "2px solid red";
             }
         });

@@ -3,6 +3,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Mijn Homepage</title>
+    <link rel="stylesheet" href="../styles.css" />
     <style>
       body {
         font-family: Arial, sans-serif;
@@ -101,7 +102,7 @@
           <label
             for="bericht"
             style="color: gray"
-            onclick="alert('goed gedaan!')"
+            onclick="showPopup('Perfect! This is correct.', 'correct')"
             >Bericht:</label
           >
           <textarea id="bericht" name="bericht" rows="4" required></textarea>

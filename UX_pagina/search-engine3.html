@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css" />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -115,7 +116,7 @@
         foutWoord.addEventListener('click', function() {
             foutWoord.textContent = 'Gevonden ✓';
             foutWoord.style.color = '#ff4500';
-            alert('Goed gedaan! Je hebt het foute element gevonden.');
+            onclick="showPopup('Perfect! This is correct.', 'correct')"
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

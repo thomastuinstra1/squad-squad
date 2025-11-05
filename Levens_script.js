@@ -39,10 +39,15 @@ const levels = [
   "../UX_pagina/social-media-pagina3.html",
   "../UX_pagina/social-media-pagina4.html",
   "../UX_pagina/social-media-pagina5.html",
+  "../UX_pagina/wiki_pagina1.html",
+  "../UX_pagina/wiki_pagina2.html",
+  "../UX_pagina/wiki_pagina3.html",
+  "../UX_pagina/wiki_pagina4.html",
+  "../UX_pagina/wiki_pagina5.html",
 ];
 
 const uitlegPerPagina = {
-  "wiki_pagina1.html": "Hier moest je de titel van het artikerl klikken, want die stond in een ander lettertype.",
+  "wiki_pagina1.html": "Hier moest je de titel van het artikel klikken, want die stond in een ander lettertype.",
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -141,7 +146,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
           nextButton?.addEventListener('click', nextHandler);
         } else {
-          // Fallback (mocht popup niet bestaan)
           alert(uitleg);
           window.location.href = CONFIG.END_URL;
         }
@@ -270,4 +274,4 @@ document.addEventListener('DOMContentLoaded', async () => {
     window.location.href = CONFIG.END_URL;
   }
 
-}); // einde DOMContentLoaded
+});

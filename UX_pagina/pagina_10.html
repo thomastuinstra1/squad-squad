@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Inloggen</title>
+  <link rel="stylesheet" href="../styles.css" />
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -55,7 +56,7 @@
     <label for="email">E-mailadres</label>
     <input id="email" type="email" placeholder="naam@example.com">
 
-    <label for="password" class="password" onclick="alert('goed gedaan!')">Wachtwoord</label>
+    <label for="password" class="password" onclick="showPopup('Perfect! This is correct.', 'correct')">Wachtwoord</label>
     <input id="password" type="password" placeholder="••••••••">
 
     <button>Verzenden</button>

@@ -8,21 +8,13 @@
   </head>
   <body>
     <div id="hud-container"></div>
-    <div id="leaderboard">
-      <h2>Leaderboard</h2>
-      <ul>
-        <li id="test">Test: 0</li>
-      </ul>
-    </div>
 
     <div id="card">
       <h1>Inloggen</h1>
       <label for="username">Gebruikersnaam</label>
       <input id="username" type="text" placeholder="Typ je naam" />
-      <button id="UX_element">Inloggen</button>
+      <button onclick="showPopup('Perfect! This is correct.', 'correct')" id="UX_element">Inloggen</button>
     </div>
-
-    <button id="resetScore">Reset score</button>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../script_Leaderboard.js"></script>

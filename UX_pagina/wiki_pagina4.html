@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wikipedia Article</title>
-    <link rel="stylesheet" href="wiki_pagina1.css">
-    <script src="wiki_pagina1.js" defer></script>
+    <link rel="stylesheet" href="../styles.css" />
 </head>
 <body>
+    <div id="hud-container"></div>
     <div class="page-layout">
         <div class="wiki-container">
             <div class="wiki-header">
@@ -18,7 +18,7 @@
                     <ul>
                         <li><a href="#">Article</a></li>
                         <li><a href="#">Discussion</a></li>
-                        <li><a href="#"class="active">Edit</a></li>
+                        <li><a href="#"class="active" onclick="showPopup('Perfect! This is correct.', 'correct')" >Edit</a></li>
                         <li><a href="#">History</a></li>
                     </ul>
                 </div>
@@ -80,6 +80,9 @@
         </div>
     </div>
     <style>
+              h1 {
+        color: #202122;
+      }
 :root {
     --bg-color: #f6f6f6;
     --content-bg: #ffffff;
@@ -139,7 +142,7 @@ body {
 
 
 .wiki-container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     background-color: var(--content-bg);
     min-height: 100vh;
@@ -149,7 +152,7 @@ body {
 
 .wiki-content {
     flex: 1;
-    max-width: 1000px;
+    max-width: 800px;
     margin: 0 auto;
     padding-right: 320px; 
     padding: 1rem 2rem;
@@ -251,3 +254,5 @@ section h2 {
 </style>
 </body>
 </html>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="../Levens_script.js" defer></script>
