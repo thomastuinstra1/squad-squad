@@ -28,7 +28,7 @@
       border: 1px solid #bbb;
       border-radius: 4px;
     }
-    button {
+    .button {
       width: 100%;
       padding: 0.5rem;
       background: #ddd;
@@ -36,7 +36,7 @@
       border-radius: 4px;
       cursor: pointer;
     }
-    button:hover {
+    .button:hover {
       background: #ccc;
     }
     .help {
@@ -51,7 +51,7 @@
 </head>
 <body>
   <div id="hud-container"></div>
-  <h1 style="text-align:center;">Login</h1>
+  <h1 style="text-align: center; color: black;">Login</h1>
   <form>
     <label for="email">E-mailadres</label>
     <input id="email" type="email" placeholder="naam@example.com">
@@ -59,7 +59,7 @@
     <label for="password" class="password" onclick="showPopup('Perfect! This is correct.', 'correct')">Wachtwoord</label>
     <input id="password" type="password" placeholder="••••••••">
 
-    <button>Verzenden</button>
+    <button class="button">Verzenden</button>
     <div class="help">
         <a>Wachtwoord vergeten? | Maak een nieuw account</a>
     </div>

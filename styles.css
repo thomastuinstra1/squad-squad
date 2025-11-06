@@ -150,8 +150,8 @@ input[type="text"] {
 
 #popupBox {
     padding: 100px;
-    width: 300px;
-    height: 100px;
+    width: 400px;
+    height: 150px;
     border-radius: 8px;
     position: relative;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);

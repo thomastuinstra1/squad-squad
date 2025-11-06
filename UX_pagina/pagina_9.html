@@ -8,13 +8,13 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background: #fafafa;
+      background: #ffffff;
       padding: 2rem;
     }
     form {
       max-width: 300px;
       margin: 0 auto;
-      background: white;
+      background: rgb(255, 255, 255);
       padding: 1.5rem;
       border-radius: 8px;
       box-shadow: 0 0 5px rgba(0,0,0,0.1);
@@ -28,7 +28,7 @@
       border: 1px solid #bbb;
       border-radius: 4px;
     }
-    button {
+    .button {
       width: 100%;
       padding: 0.5rem;
       background: #dddddd;
@@ -36,7 +36,7 @@
       border-radius: 4px;
       cursor: pointer;
     }
-    button:hover {
+    .button:hover {
       background: #ccc;
     }
     .help {
@@ -48,15 +48,15 @@
 </head>
 <body>
   <div id="hud-container"></div>
-  <h1 style="text-align:center;">Login</h1>
+  <h1 style="text-align: center; color: black;">Login</h1>
   <form>
     <label for="email">E-mailadres</label>
     <input id="email" type="email" placeholder="naam@example.com">
 
     <label for="password">Wachtwoord</label>
     <input id="password" type="password" placeholder="••••••••">
-
-    <button>Verzenden</button>
+    
+      <button class="button">Verzenden</button>
     <div class="help">
         <a onclick="showPopup('Perfect! This is correct.', 'correct')">Wachtwoord vergeten?|Maak een nieuw account</a>
     </div>

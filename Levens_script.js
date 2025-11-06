@@ -67,7 +67,16 @@ const uitlegPerPagina = {
   "social-media-pagina3.html":"Notificaties zijn bijna onzichtbaar en vallen weg op de achtergrond",
   "social-media-pagina4.html":"De knop Berichten doet niks, de rest van de snelkoppelingen wel",
   "social-media-pagina5.html":"Je moet 2 keer klikken om te posten, er zit een timer op waardoor het gebruiksonvriendelijk is",
-
+  "Index.html":"De inlog knop is veel te klein, waardoor de tekst inloggen niet goed leesbaar is.",
+  "pagina_2.html":"Het kopje over mij is te klein. Het hoort even groot te zijn als de andere kopjes.",
+  "pagina_3.html":"Het wachtwoord is zichtbaar terwijl die onzichtbaar moet wezen.",
+  "pagina_4.html":"Er wordt niet uitgelegd waarom het inloggen mislukt is.",
+  "pagina_5.html":"Het woord Bericht heeft een lichtere kleur, waardoor hij wegvalt in de achtergrond.",
+  "pagina_6.html":"Het is niet duidelijk naar welke pagina je gaat als je op het woord Iets klikt.",
+  "pagina_7.html":"De titel valt weg, omdat de kleur van de titel overeenkomt met de achtergrondkleur.",
+  "pagina_8.html":"Het is niet duidelijk wat de knop iets doet.",
+  "pagina_9.html":"De ruimte tussen wachtwoord vergeten en Maak een nieuw account is veel te klein.",
+  "pagina_10.html":"Het woord wachtwoord heeft een ander lettertype, waardoor het niet bij de rest van de pagina past.",
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
