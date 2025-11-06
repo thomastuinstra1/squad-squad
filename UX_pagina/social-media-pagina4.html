@@ -110,9 +110,18 @@
             margin: 0;
         }
 
+        .bad-ux {
+            transition: transform 0.2s;
+        }
+        .bad-ux:hover {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
+    <audio loop autoplay>
+    <source src="../Muziek/neon-gaming-128925.mp3" type="audio/mpeg">
+</audio>
     <div id="hud-container"></div>
     <header>
         Mini Social Media
@@ -155,10 +164,15 @@
         badUx.addEventListener('click', () => {
             clickCount++;
             if (clickCount === 2) {
-               showPopup('Perfect! This is correct.', 'correct')
+                    showPopup('Perfect! This is correct.', 'correct')
             }
         });
 
+        document.querySelectorAll('.sidebar ul li:not(.bad-ux)').forEach(el => {
+            el.addEventListener('click', () => {
+                alert(`Je klikte op ${el.textContent}`);
+            });
+        });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../Levens_script.js"></script>

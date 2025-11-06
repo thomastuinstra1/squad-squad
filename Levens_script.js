@@ -57,8 +57,16 @@ const uitlegPerPagina = {
   "gamePagina7.html":"Het blok heeft dezelfde kleur als de knoppen, waardoor je de knoppen niet kan zien",
   "gamePagina8.html":"De exit knop heeft geen tekst er bij staan waardoor het onduidelijk is",
   "gamePagina9.html":"De load game knop is kleiner dan de rest ",
-
-
+  "search-engine1.html":"De tekst in de zoekknop is erg klein",
+  "search-engine2.html":"De border om de zoekbalk is niet zichtbaar",
+  "search-engine3.html":"Het woord SEARCH is een ander lettertype dan de rest van de titel",
+  "search-engine4.html":"De zoekknop is in het Nederlands, de rest van de tekst is in het Engels",
+  "search-engine5.html":"Het woord Simpel in de titel is in het Nederlands, de rest is in het Engels",
+  "social-media-pagina1.html":"De post knop is onduidelijk omdat de knop dezelfde kleur heeft als de achtergrond",
+  "social-media-pagina2.html":"De namen vallen weg op de achtergrond en zijn bijna onzichtbaar",
+  "social-media-pagina3.html":"Notificaties zijn bijna onzichtbaar en vallen weg op de achtergrond",
+  "social-media-pagina4.html":"De knop Berichten doet niks, de rest van de snelkoppelingen wel",
+  "social-media-pagina5.html":"Je moet 2 keer klikken om te posten, er zit een timer op waardoor het gebruiksonvriendelijk is",
 
 };
 
