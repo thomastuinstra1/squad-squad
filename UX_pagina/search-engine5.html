@@ -70,7 +70,7 @@
     <div id="hud-container"></div>
     <div class="container">
         <h1>
-            <span id="faulty" class="faulty">Simpel</span> Search Engine
+            <span id="faulty" onclick="showPopup('Perfect! This is correct.', 'correct')" class="faulty">Simpel</span> Search Engine
         </h1>
         <form id="searchForm">
             <input type="text" id="searchInput" placeholder="Type to search..." autocomplete="off" required>
@@ -105,9 +105,6 @@ form.addEventListener('submit', function(e) {
     }
 });
 
-faultyWord.addEventListener('click', function() {
-    onclick="showPopup('Perfect! This is correct.', 'correct')"
-});
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../Levens_script.js"></script>

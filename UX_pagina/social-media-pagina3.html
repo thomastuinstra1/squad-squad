@@ -130,7 +130,7 @@
             <li>Profiel</li>
             <li>Berichten</li>
             <li>Instellingen</li>
-            <li class="bad-ux">Notificaties</li>
+            <li onclick="showPopup('Perfect! This is correct.', 'correct')" class="bad-ux">Notificaties</li>
             
         </ul>
     </div>
@@ -156,13 +156,6 @@
     </div>
 </div>
 
-<script>
-    const badUxElement = document.querySelector('.bad-ux');
-    badUxElement.addEventListener('click', () => {
-        onclick="showPopup('Perfect! This is correct.', 'correct')"
-        badUxElement.style.border = "2px solid red";
-    });
-</script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../Levens_script.js"></script>
 </body>

@@ -126,7 +126,7 @@
         <div class="feed">
             <div class="new-post">
                 <textarea placeholder="Wat wil je delen?"></textarea>
-                <button id="postBtn">Post</button>
+                <button onclick="showPopup('Perfect! This is correct.', 'correct')" id="postBtn">Post</button>
             </div>
             <div class="post">
                 <h3>Alice</h3>
@@ -139,13 +139,6 @@
         </div>
     </div>
 
-    <script>
-        // Interactieve hint voor foute UI/UX
-        const postBtn = document.getElementById('postBtn');
-        postBtn.addEventListener('click', function() {
-            onclick="showPopup('Perfect! This is correct.', 'correct')"
-        });
-    </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../Levens_script.js"></script>
 </body>

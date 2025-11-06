@@ -6,13 +6,14 @@
     <title>Mini Social Media</title>
     <link rel="stylesheet" href="../styles.css" />
     <style>
-        body {
+        /* ====== Mini Social Media: unieke stijlen ====== */
+        .social-page {
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f0f2f5;
         }
 
-        header {
+        .social-header {
             background-color: #4267B2;
             color: white;
             padding: 16px 32px;
@@ -20,51 +21,51 @@
             font-weight: bold;
         }
 
-        .main-container {
+        .social-main {
             display: flex;
             max-width: 1200px;
             margin: 20px auto;
             gap: 20px;
         }
 
-        .sidebar {
+        .social-sidebar {
             flex: 1;
             background-color: #fff;
             padding: 16px;
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        .sidebar h2 {
+        .social-sidebar h2 {
             font-size: 1.2rem;
             margin-bottom: 10px;
         }
-        .sidebar ul {
+        .social-sidebar ul {
             list-style: none;
             padding: 0;
         }
-        .sidebar ul li {
+        .social-sidebar ul li {
             margin: 10px 0;
             cursor: pointer;
             color: #4267B2;
         }
-        .sidebar ul li:hover {
+        .social-sidebar ul li:hover {
             text-decoration: underline;
         }
 
-        .feed {
+        .social-feed {
             flex: 2;
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
 
-        .new-post {
+        .social-new-post {
             background-color: #fff;
             padding: 16px;
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        .new-post textarea {
+        .social-new-post textarea {
             width: 100%;
             height: 80px;
             padding: 8px;
@@ -73,7 +74,7 @@
             border-radius: 5px;
             border: 1px solid #ccc;
         }
-        .new-post button {
+        .social-new-post button {
             margin-top: 8px;
             padding: 10px 16px;
             background-color: #4267B2;
@@ -82,33 +83,33 @@
             border-radius: 5px;
             cursor: pointer;
         }
-        .new-post button:hover {
+        .social-new-post button:hover {
             background-color: #365899;
         }
 
-        .post {
+        .social-post {
             background-color: #fff;
             padding: 16px;
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        .post h3 {
+        .social-post h3 {
             margin: 0 0 8px 0;
             font-size: 1.1rem;
             color: #4267B2;
         }
-        .post p {
+        .social-post p {
             margin: 0;
         }
     </style>
 </head>
-<body>
+<body class="social-page">
     <div id="hud-container"></div>
-    <header>
+    <header class="social-header">
         Mini Social Media
     </header>
-    <div class="main-container">
-        <div class="sidebar">
+    <div class="social-main">
+        <div class="social-sidebar">
             <h2>Snelkoppelingen</h2>
             <ul>
                 <li>Home</li>
@@ -118,20 +119,20 @@
                 <li>Instellingen</li>
             </ul>
         </div>
-        <div class="feed">
-            <div class="new-post">
+        <div class="social-feed">
+            <div class="social-new-post">
                 <textarea placeholder="Wat wil je delen?"></textarea>
                 <button>Post</button>
             </div>
-            <div class="post">
+            <div class="social-post">
                 <h3>Alice</h3>
                 <p>Vandaag lekker gewandeld in het park!</p>
             </div>
-            <div class="post">
+            <div class="social-post">
                 <h3>Bob</h3>
                 <p>Nieuwe social media pagina gebouwd met HTML en CSS!</p>
             </div>
-            <div class="post">
+            <div class="social-post">
                 <h3>Charlie</h3>
                 <p>Heeft iemand tips voor een goede boekentip?</p>
             </div>

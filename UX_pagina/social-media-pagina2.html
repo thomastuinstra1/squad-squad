@@ -125,28 +125,21 @@
                 <button>Post</button>
             </div>
             <div class="post">
-                <h3 class="fout">Alice</h3>
+                <h3 onclick="showPopup('Perfect! This is correct.', 'correct')" class="fout">Alice</h3>
                 <p>Vandaag lekker gewandeld in het park!</p>
             </div>
             <div class="post">
-                <h3 class="fout">Bob</h3>
+                <h3 onclick="showPopup('Perfect! This is correct.', 'correct')" class="fout">Bob</h3>
                 <p>Nieuwe social media pagina gebouwd met HTML en CSS!</p>
             </div>
             <div class="post">
-                <h3 class="fout">Charlie</h3>
+                <h3 onclick="showPopup('Perfect! This is correct.', 'correct')" class="fout">Charlie</h3>
                 <p>Heeft iemand tips voor een goede boekentip?</p>
             </div>
         </div>
     </div>
 
-    <script>
-        document.querySelectorAll('.fout').forEach(name => {
-            name.addEventListener('click', () => {
-                onclick="showPopup('Perfect! This is correct.', 'correct')"
-                name.style.color = '#4267B2';
-            });
-        });
-    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../Levens_script.js"></script>
 </body>

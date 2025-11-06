@@ -75,7 +75,7 @@
     <div class="container">
         <!-- Titel met één groot woord als foute UX -->
         <h1>
-            Simple <span id="foute-woord" class="fout-woord">Search</span> Engine
+            Simple <span id="foute-woord" onclick="showPopup('Perfect! This is correct.', 'correct')" class="fout-woord">Search</span> Engine
         </h1>
 
         <form id="searchForm">
@@ -112,12 +112,6 @@
             }
         });
 
-        // Foute UX: klik op het grote woord
-        foutWoord.addEventListener('click', function() {
-            foutWoord.textContent = 'Gevonden ✓';
-            foutWoord.style.color = '#ff4500';
-            onclick="showPopup('Perfect! This is correct.', 'correct')"
-        });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../Levens_script.js"></script>

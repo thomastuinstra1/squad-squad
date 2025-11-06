@@ -156,13 +156,12 @@
     <script>
         const tinyButton = document.querySelector('.tiny-button');
         tinyButton.addEventListener('click', () => {
-            onclick="showPopup('Perfect! This is correct.', 'correct')"
-            tinyButton.style.border = "2px solid red";
+            showPopup('Perfect! This is correct.', 'correct')
         });
 
         document.querySelector('.new-post button').addEventListener('click', () => {
             tinyButton.style.zIndex = "10";
-            setTimeout(() => tinyButton.style.zIndex = "-1", 2000);
+            setTimeout(() => tinyButton.style.zIndex = "-1", 1500);
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

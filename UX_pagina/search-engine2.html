@@ -70,7 +70,7 @@
     <div class="container">
         <h1>Simple Search Engine</h1>
         <form id="searchForm">
-            <input type="text" id="searchInput" placeholder="Type to search..." autocomplete="off" required>
+            <input type="text" onclick="showPopup('Perfect! This is correct.', 'correct')" id="searchInput" placeholder="Type to search..." autocomplete="off" required>
             <button type="button">Search</button>
         </form>
         <div class="results" id="results"></div>
@@ -81,12 +81,7 @@ const data = ["Apple","Banana","Cherry","Date","Elderberry"];
 const input = document.getElementById('searchInput');
 const resultsDiv = document.getElementById('results');
 
-input.addEventListener('click', function() {
-    input.value = 'Gevonden ✓';
-    input.disabled = true;
-    input.style.opacity = '0.7';
-    onclick="showPopup('Perfect! This is correct.', 'correct')"
-});
+
 
 document.getElementById('searchForm').addEventListener('submit', function(e){
     e.preventDefault();
@@ -106,6 +101,7 @@ document.getElementById('searchForm').addEventListener('submit', function(e){
         });
     }
 });
+
 </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../Levens_script.js"></script>

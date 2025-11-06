@@ -110,12 +110,6 @@
             margin: 0;
         }
 
-        .bad-ux {
-            transition: transform 0.2s;
-        }
-        .bad-ux:hover {
-            transform: scale(1.05);
-        }
     </style>
 </head>
 <body>
@@ -161,16 +155,10 @@
         badUx.addEventListener('click', () => {
             clickCount++;
             if (clickCount === 2) {
-                onclick="showPopup('Perfect! This is correct.', 'correct')"
-                badUx.style.border = "2px solid red";
+               showPopup('Perfect! This is correct.', 'correct')
             }
         });
 
-        document.querySelectorAll('.sidebar ul li:not(.bad-ux)').forEach(el => {
-            el.addEventListener('click', () => {
-                alert(`Je klikte op ${el.textContent}`);
-            });
-        });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../Levens_script.js"></script>

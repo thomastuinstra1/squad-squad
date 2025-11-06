@@ -67,7 +67,7 @@
         <h1>Simple Search Engine</h1>
         <form id="searchForm">
             <input type="text" id="searchInput" placeholder="Type to search..." autocomplete="off" required>
-            <button type="button" class="fake">Search</button>
+            <button type="button" onclick="showPopup('Perfect! This is correct.', 'correct')">Search</button>
         </form>
         <div class="results" id="results"></div>
     </div>
@@ -97,14 +97,8 @@ form.addEventListener('submit', function(e) {
     }
 });
 
-document.querySelectorAll(showPopup('Perfect! This is correct.', 'correct')).forEach(btn => {
-    btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        btn.textContent = 'Gevonden ✓';
-        btn.disabled = true;
-        btn.style.opacity = '0.7';
-    });
-});
+
+
 </script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="../Levens_script.js"></script>
