@@ -17,7 +17,6 @@ const levels = [
   "../UX_pagina/gamePagina7.html",
   "../UX_pagina/gamePagina8.html",
   "../UX_pagina/gamePagina9.html",
-  "../UX_pagina/Index.html",
   "../UX_pagina/pagina_2.html",
   "../UX_pagina/pagina_3.html",
   "../UX_pagina/pagina_4.html",
@@ -48,6 +47,19 @@ const levels = [
 
 const uitlegPerPagina = {
   "wiki_pagina1.html": "Hier moest je de titel van het artikel klikken, want die stond in een ander lettertype.",
+  "gamePagina.html":"Hier moest je de titel klikken, de titel had geen schaduw waardoor hij een andere stijl is dan de rest van de pagina",
+  "gamePagina1.html":"De titel heeft een compleet ander lettertype dan de rest",
+  "gamePagina2.html":"De border van de exit knop is veel te groot",
+  "gamePagina3.html":"De footer was hier veel te groot",
+  "gamePagina4.html":"Hier is de knop onduidelijk, wat betekent klik hier voor iets",
+  "gamePagina5.html":"De opties knop staat hier in een andere taal",
+  "gamePagina6.html":"Hier was de fout de titel, de spacing was veel te groot tussen de letters",
+  "gamePagina7.html":"Het blok heeft dezelfde kleur als de knoppen, waardoor je de knoppen niet kan zien",
+  "gamePagina8.html":"De exit knop heeft geen tekst er bij staan waardoor het onduidelijk is",
+  "gamePagina9.html":"De load game knop is kleiner dan de rest ",
+
+
+
 };
 
 document.addEventListener('DOMContentLoaded', async () => {
