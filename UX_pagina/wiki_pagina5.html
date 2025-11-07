@@ -9,7 +9,7 @@
 <body>
     <div id="hud-container"></div>
     <div class="page-layout">
-        <div class="wiki-container">
+        <div class="wiki-container" onclick="showPopup('Correct! De container is verschoven naar rechts.', 'correct')">
             <div class="wiki-header">
                 <div class="wiki-logo">
                     <a href="#">Wikipedia</a>
@@ -23,7 +23,7 @@
                     </ul>
                 </div>
                 <div class="wiki-search">
-                    <input type="search" placeholder="Zoek Wikipedia" onclick="showPopup('Perfect! This is correct.', 'correct')">
+                    <input type="search" placeholder="search Wikipedia">
                 </div>
             </div>
             <div class="wiki-content">
@@ -147,6 +147,9 @@ body {
     background-color: var(--content-bg);
     min-height: 100vh;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around; 
+    align-items: space-around;
 }
 
 .wiki-content {

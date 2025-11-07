@@ -26,7 +26,7 @@
                     <input type="search" placeholder="Search Wikipedia">
                 </div>
             </div>
-            <div class="wiki-content">
+            <div class="wiki-content" onclick="showPopup('Correct! De pagina is gekrompen. Dit zorgt ervoor dat de tekst knel staat.', 'correct')">
             <h1 class="article-title">User interface design</h1>
             
             <div class="article-info">
@@ -65,7 +65,7 @@
             </section>
 
             <section id="section3">
-                <h3 onclick="showPopup('Perfect! This is correct.', 'correct')">Design thinking</h3>
+                <h2>Design thinking</h2>
                 <p>User interface design requires a good understanding of user needs. It mainly focuses on the needs of the platform and its user expectations. There are several phases and processes in the user interface design, some of which are more demanded upon than others, depending on the project. The modern design thinking framework was created in 2004 by David M. Kelley, the founder of Stanford’s d.school, formally known as the Hasso Plattner Institute of Design. EDIPT is a common acronym used to describe Kelley’s design thinking framework—it stands for empathize, define, ideate, prototype, and test. Notably, the EDIPT framework is non-linear, therefore a UI designer may jump from one stage to another when developing a user-centric solution. Iteration is a common practice in the design thinking process; successful solutions often require testing and tweaking to ensure that the product fulfills user needs.</p>
             </section>
 
@@ -151,7 +151,7 @@ body {
 
 .wiki-content {
     flex: 1;
-    max-width: 800px;
+    max-width: 300px;
     margin: 0 auto;
     padding-right: 320px; 
     padding: 1rem 2rem;
