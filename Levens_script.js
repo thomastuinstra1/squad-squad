@@ -275,3 +275,22 @@ document.addEventListener('DOMContentLoaded', async () => {
   }
 
 });
+
+if (!window.bgMusic) {
+  window.bgMusic = new Audio('../Muziek/neon-gaming-128925.mp3');
+  window.bgMusic.loop = true;
+  window.bgMusic.volume = 0.01; // optioneel: zachter zetten
+}
+
+// Functie om muziek te starten (alleen als nog niet speelt)
+function startMusic() {
+  if (window.bgMusic.paused) {
+    window.bgMusic.play().catch((err) => {
+      console.warn("Autoplay geblokkeerd — wacht op gebruikersactie.", err);
+    });
+  }
+}
+
+// Start pas na een gebruikersactie (klik, toets, etc.)
+document.addEventListener('click', startMusic, { once: true });
+document.addEventListener('keydown', startMusic, { once: true });
