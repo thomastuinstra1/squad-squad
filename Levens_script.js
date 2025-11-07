@@ -82,6 +82,17 @@ const uitlegPerPagina = {
   "wiki_pagina5.html":"Helaas! De container is verschoven naar rechts.", 
 };
 
+const goedGeluid = new Audio('../Muziek/Goed.mp3');
+const foutGeluid = new Audio('../Muziek/Fout.mp3');
+
+function speelGeluid(isCorrect) {
+    if(isCorrect) {
+        goedGeluid.play();
+    } else {
+        foutGeluid.play();
+    }
+}
+
 document.addEventListener('DOMContentLoaded', async () => {
 
   let popupOverlay, popupBox, uitlegText, nextButton;
@@ -105,6 +116,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (type === 'correct') popupBox.classList.add('correct');
         if (type === 'mistake') popupBox.classList.add('mistake');
         popupOverlay.classList.remove('hidden');
+
+        if (type === 'correct') speelGeluid(true);
+        if (type === 'mistake') speelGeluid(false);
 
         UI.toggleLoseLifeButton(false);
       };
@@ -160,6 +174,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       this.lives--;
       this.save();
       UI.updateLives();
+
+        speelGeluid(false);
 
       const onLevelPage = window.location.pathname.includes('UX_pagina');
 
