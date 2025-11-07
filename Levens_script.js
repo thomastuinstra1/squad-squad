@@ -152,15 +152,34 @@ document.addEventListener('DOMContentLoaded', async () => {
   const MAX_LIVES = livesImgs.length > 0 ? livesImgs.length : 3;
 
   const GameState = {
+    
     lives: (function() {
       const saved = parseInt(localStorage.getItem('lives'), 10);
       return (Number.isInteger(saved) && saved >= 0) ? saved : MAX_LIVES;
     })(),
     lastLevel: localStorage.getItem('lastLevel') || null,
 
+    points: (function() {
+        const saved = parseInt(localStorage.getItem('points'), 10);
+        return (Number.isInteger(saved) && saved >= 0) ? saved : 0;
+    })(),
+
+    addPoints(amount = 1) {
+        this.points += amount;
+        localStorage.setItem('points', this.points);
+        UI.updatePoints();
+    },
+
+    resetPoints() {
+        this.points = 0;
+        localStorage.setItem('points', this.points);
+        UI.updatePoints();
+    },
+
     save() {
       localStorage.setItem('lives', this.lives);
     },
+    
 
     reset() {
       this.lives = MAX_LIVES;
@@ -175,7 +194,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       this.save();
       UI.updateLives();
 
-        speelGeluid(false);
+        speelGeluid(false); 
+        
 
       const onLevelPage = window.location.pathname.includes('UX_pagina');
 
@@ -248,6 +268,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   },
 
+   updatePoints() {
+        const pointsElement = document.getElementById('pointsCount'); 
+        if (pointsElement) {
+            pointsElement.textContent = GameState.points !== undefined ? GameState.points : 0;
+        }
+    },
+
+
   async confirmGiveUp() {
     if (!elements.loseLifeBtn) return;
 
@@ -314,12 +342,31 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   if (onStartPage && GameState.lives <= 0) {
     GameState.reset();
+    GameState.resetPoints();
   }
 
   UI.updateLives();
+  UI.updatePoints(); 
 
   if (onLevelPage && GameState.lives <= 0) {
     window.location.href = CONFIG.END_URL;
+  }
+
+  const goedGeluid = new Audio('../Muziek/Goed.mp3');
+    const foutGeluid = new Audio('../Muziek/Fout.mp3');
+
+    function speelGeluid(isCorrect) {
+        if (isCorrect) {
+            goedGeluid.play();
+            GameState.addPoints(1); 
+        } else {
+            foutGeluid.play();
+        }
+    }
+
+  const randomButton = document.getElementById('randomButton');
+  if (randomButton) {
+    randomButton.addEventListener('click', () => GameState.nextRandomLevel());
   }
 
 });

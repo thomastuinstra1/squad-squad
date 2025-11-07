@@ -1,66 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Instellingen</title>
     <link rel="stylesheet" href="../styles.css" />
     <style>
-        body {
+      body {
         font-family: system-ui, sans-serif;
         background: #f7f8fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      .container {
+        background: white;
         padding: 2rem;
-        }
-        input {
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+      }
+
+      h1 {
+        margin-bottom: 1.5rem;
+      }
+
+      label {
         display: block;
-        width: 300px;
+        text-align: left;
+        margin-bottom: 1rem;
+        font-weight: 500;
+      }
+
+      input {
+        display: block;
+        width: 100%;
         padding: 0.5rem;
         border: 1px solid #ccc;
         border-radius: 6px;
         margin-top: 0.3rem;
-        }
-        .buttons button {
+        box-sizing: border-box;
+      }
+
+      .buttons {
+        margin-top: 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .buttons button {
+        flex: 1;
         border: 1px solid #ccc;
         border-radius: 6px;
         padding: 0.5rem 1rem;
         cursor: pointer;
-        }
-        .buttons .opslaan {
         background: white;
-        }
-        .buttons .reset {
-        background: white;
-        font-family: monospace;
-        }
-        .opgeslagen {
-        display: inline-block;
+        font-size: 1rem;
+      }
+
+      .opgeslagen {
+        display: block;
         font-size: 0.8rem;
         background: #eaf3ff;
         padding: 0.3rem 0.6rem;
         border-radius: 4px;
         margin-top: 1rem;
-        }
+        text-align: center;
+      }
+
+      #hud-container {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 9999;
+      }
     </style>
-</head>
-<body>
-    <div id="hud-container"></div>
-    <h1>Instellingen</h1>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Instellingen</h1>
 
-    <label>Volledige naam
-        <input type="text" placeholder="Bijv. Anna van Dijk">
-    </label>
+      <label
+        >Volledige naam
+        <input type="text" placeholder="Bijv. Anna van Dijk" />
+      </label>
 
-    <label>E-mail
-        <input type="email" placeholder="naam@example.com">
-    </label>
+      <label
+        >E-mail
+        <input type="email" placeholder="naam@example.com" />
+      </label>
 
-    <div class="buttons" style="margin-top: 1rem;">
+      <div class="buttons">
         <button class="opslaan">Opslaan</button>
-        <button class="reset"><a onclick="showPopup('Correct! Het is niet duidelijk wat de knop iets doet.', 'correct')">iets</a></button>
+        <button
+          class="reset"
+          onclick="showPopup('Correct! Het is niet duidelijk wat de knop iets doet.', 'correct')"
+        >
+          iets
+        </button>
+      </div>
+
+      <div class="opgeslagen">Opgeslagen!</div>
     </div>
 
-    <div class="opgeslagen">Opgeslagen!</div>
+    <div id="hud-container"></div>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../Levens_script.js"></script>
-</body>
+  </body>
 </html>

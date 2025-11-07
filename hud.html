@@ -12,7 +12,9 @@
         <img src="../Images/hartje.png" alt="Leven 2" data-state="full" />
         <img src="../Images/hartje.png" alt="Leven 3" data-state="full" />
       </div>
-
+      <div id="pointsDisplay">
+       Points: <span id="pointsCount">0</span>
+      </div>
       <button id="loseLifeBtn">Geef op</button>
     </div>
     <div id="popupOverlay" class="hidden">
@@ -35,6 +37,22 @@
         height: calc(100vh - 40px);
         z-index: 99999;
         pointer-events: none;
+      }
+      #pointsDisplay {
+        position: fixed;     
+        top: 20px;            
+        right: 20px;          
+        background: rgba(0, 0, 0, 0.7);  
+        color: #fff;         
+        padding: 10px 15px;
+        border-radius: 10px;
+        font-size: 18px;
+        font-weight: bold;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        z-index: 1000;        
+        display: flex;
+        align-items: center;
+       gap: 5px;
       }
 
       #lives {
