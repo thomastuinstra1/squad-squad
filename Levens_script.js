@@ -221,17 +221,36 @@ document.addEventListener('DOMContentLoaded', async () => {
     },
 
 
-    nextRandomLevel() {
-      if (!levels.length) return;
-      let randomLevel;
-      do {
-        randomLevel = levels[Math.floor(Math.random() * levels.length)];
-      } while (randomLevel === this.lastLevel && levels.length > 1);
+nextRandomLevel() {
+  if (!levels.length) return;
 
-      this.lastLevel = randomLevel;
-      localStorage.setItem('lastLevel', randomLevel);
-      window.location.href = randomLevel;
-    }
+  // Haal gespeelde levels op uit localStorage
+  let playedLevels = JSON.parse(localStorage.getItem('playedLevels') || '[]');
+
+  // Filter om alleen niet-gespeelde levels over te houden
+  let availableLevels = levels.filter(level => !playedLevels.includes(level));
+
+  // Als alle levels gespeeld zijn → reset lijst
+  if (availableLevels.length === 0) {
+    playedLevels = [];
+    availableLevels = [...levels];
+  }
+
+  // Kies willekeurig level uit de nog niet gespeelde
+  const randomLevel = availableLevels[Math.floor(Math.random() * availableLevels.length)];
+
+  // Voeg dit level toe aan gespeelde lijst
+  playedLevels.push(randomLevel);
+  localStorage.setItem('playedLevels', JSON.stringify(playedLevels));
+
+  // Onthoud laatste level (optioneel)
+  this.lastLevel = randomLevel;
+  localStorage.setItem('lastLevel', randomLevel);
+
+  // Ga naar het nieuwe level
+  window.location.href = randomLevel;
+}
+
   };
 
   const UI = {
